@@ -3,11 +3,25 @@ var Schema = mongoose.Schema;
 
 mongoose.Promise = global.Promise;
 
+var VideoSchema = new Schema({
+	artist: String,
+	title: String,
+	genre: String,
+	language: String,
+	triggers: [],
+	date: Date,
+	length: Number,
+	url: String
+})
+
 var UserSchema = new Schema({
-  email: String,
-  password_digest: String,
-  created_at: Date,
-  updated_at: Date
+	username: String,
+  	email: String,
+  	password_digest: String,
+  	about: String,
+  	video: [VideoSchema],
+  	created_at: Date,
+  	updated_at: Date
 });
 
 UserSchema.pre('save', function(next) {
@@ -19,7 +33,9 @@ UserSchema.pre('save', function(next) {
 });
 
 var UserModel = mongoose.model('User', UserSchema);
+var VideoModel = mongoose.model('Video', VideoSchema);
 
 module.exports = {
-  User: UserModel
+  User: UserModel,
+  Video: VideoModel
 }
