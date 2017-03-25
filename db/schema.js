@@ -4,13 +4,13 @@ var Schema = mongoose.Schema;
 mongoose.Promise = global.Promise;
 
 var VideoSchema = new Schema({
-	artist: String,
-	title: String,
+	artist_name: String,
+	video_title: String,
 	genre: String,
 	language: String,
 	triggers: [],
 	date: Date,
-	length: Number,
+	video_length_mins: Number,
 	url: String
 })
 
