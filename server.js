@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var index = require('./controllers/index');
 var users = require('./controllers/usersController');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/asmr-video-app');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +44,19 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Now that we're connected, let's save that connection to the database in a variable.
+var db = mongoose.connection;
+
+// Will log an error if db can't connect to MongoDB
+db.on('error', function(err){
+  console.log(err);
+});
+
+// Will log "database has been connected" if it successfully connects.
+db.once('open', function() {
+  console.log("database has been connected!");
 });
 
 //added listen function
