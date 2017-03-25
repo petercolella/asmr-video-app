@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
-var users = require('./routes/users');
+var index = require('./controllers/index');
+var users = require('./controllers/usersController');
 
 var app = express();
 
@@ -41,6 +41,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+//added listen function
+app.listen(5000, function(){
+  console.log("app listening on port 5000");
 });
 
 module.exports = app;
