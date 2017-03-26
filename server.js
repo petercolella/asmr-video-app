@@ -73,8 +73,9 @@ app.use(function(err, req, res, next) {
 // });
 
 //added listen function
+
+module.exports = app;
+
 app.listen(5000, function(){
   console.log("app listening on port 5000");
 });
-
-module.exports = app;
