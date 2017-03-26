@@ -8,9 +8,9 @@ var VideoSchema = new Schema({
 	video_title: String,
 	genre: String,
 	language: String,
-	triggers: [],
-	date: Date,
-	video_length_mins: Number,
+	triggers: String,
+	date: String,
+	video_length_mins: String,
 	url: String
 })
 
