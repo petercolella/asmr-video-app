@@ -1,4 +1,5 @@
 pry = require('pryjs');
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -9,12 +10,14 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var methodOverride = require('method-override');
 
+var db = require('./db');
+
+mongoose.connect('mongodb://localhost/asmr-video-app');
+
 var index = require('./controllers/index');
 var users = require('./controllers/usersController');
 
 var app = express();
-
-mongoose.connect('mongodb://localhost/asmr-video-app');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,18 +59,18 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Now that we're connected, let's save that connection to the database in a variable.
-var db = mongoose.connection;
+// // Now that we're connected, let's save that connection to the database in a variable.
+// var db = mongoose.connection;
 
-// Will log an error if db can't connect to MongoDB
-db.on('error', function(err){
-  console.log(err);
-});
+// // Will log an error if db can't connect to MongoDB
+// db.on('error', function(err){
+//   console.log(err);
+// });
 
-// Will log "database has been connected" if it successfully connects.
-db.once('open', function() {
-  console.log("database has been connected!");
-});
+// // Will log "database has been connected" if it successfully connects.
+// db.once('open', function() {
+//   console.log("database has been connected!");
+// });
 
 //added listen function
 app.listen(5000, function(){
