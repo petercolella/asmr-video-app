@@ -7,25 +7,25 @@ var User = require('../models/user');
 router.get('/', function(req, res, next) {
   // res.send('respond with a resource');
   	User.find({})
-    	.exec(function(err, users){
-	    	if (err) { console.log(err); }
-	      	console.log(users);
-	      	res.render('users/index.hbs', {
-	        	users: users
-	      	});
-    	});
+    .exec(function(err, users){
+	    if (err) { console.log(err); }
+	    console.log(users);
+	    res.render('users/index.hbs', {
+	        users: users
+	    });
+    });
 });
 
-router.get('/:id', function(req, res) {
-    User.findById(req.params.id)
-        .exec(function(err, users) {
-            if(err) console.log(err);
-
-            console.log(users);
-            res.render('users/show.hbs', {
-        		users: users
-      		});
-        });
+// USER SHOW ROUTE
+router.get('/:id', function(req, res){
+  	User.findById(req.params.id)
+  	.exec(function(err, user) {
+    	if (err) console.log(err);
+    	console.log(user);
+    	res.render('users/show.hbs', {
+      		user: user
+    	});
+  	});
 });
 
 module.exports = router;

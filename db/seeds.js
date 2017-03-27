@@ -28,6 +28,15 @@ var firstUser = new User({
   		date: '04/24/2016',
   		video_length_mins: '36',
   		url: 'https://youtu.be/81H9B738C3g'
+  	}, {
+  		artist_name: 'WhispersRed ASMR',
+  		video_title: 'ASMR Gong Tapping | Gloves & Sticky Fingers',
+  		genre: 'Relaxation',
+  		language: 'English',
+  		triggers: 'Gloves',
+  		date: '03/26/2016',
+  		video_length_mins: '24',
+  		url: 'https://youtu.be/nOb5buDpAG0'
   	}]
 });
 
