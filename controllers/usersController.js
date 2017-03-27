@@ -23,13 +23,31 @@ router.get('/signup', function(req, res) {
 
 //USER EDIT ROUTE
 router.get('/:id/edit', function(req, res) {
-  User.findById(req.params.id)
-  .exec(function(err, user) {
-    if (err) console.log(err);
-    res.render('users/edit.hbs', {
-      user: user
-    });
-  });
+  	User.findById(req.params.id)
+  	.exec(function(err, user) {
+    	if (err) console.log(err);
+    	res.render('users/edit.hbs', {
+      		user: user
+    	});
+  	});
+});
+
+//USER UPDATE ROUTE
+router.put('/:id', function(req, res) {
+	User.findByIdAndUpdate(req.params.id, {
+		username: req.body.username,
+		email: req.body.email,
+		password_digest: req.body.password_digest,
+		about: req.body.about
+	}, { new: true })
+		.exec(function(err, user) {
+			if (err) console.log(err);
+			console.log(user);
+			// res.send(user);
+			res.render('users/show.hbs', {
+				user: user
+			});
+		});
 });
 
 // USER SHOW ROUTE
