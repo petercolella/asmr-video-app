@@ -16,6 +16,11 @@ router.get('/', function indexVideo(req, res) {
 	});
 });
 
+//VIDEO NEW ROUTE
+router.get('/new', function newVideo(req, res) {
+	res.render('videos/new.hbs')
+})
+
 //VIDEO SHOW ROUTE
 router.get('/:id', function showVideo(req, res) {
   User.findById(req.params.userId)
