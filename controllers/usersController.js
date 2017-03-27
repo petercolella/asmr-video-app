@@ -62,6 +62,7 @@ router.get('/:id', function(req, res){
   	});
 });
 
+//USER CREATE ROUTE
 router.post('/', /*authHelpers.createSecure,*/ function(req, res){
 
   var user = new User({
@@ -77,5 +78,15 @@ router.post('/', /*authHelpers.createSecure,*/ function(req, res){
     res.redirect('/users/login');
   });
 });
+(
+//USER DELETE ROUTE
+router.delete('/:id', function(req, res) {
+	User.findByIdAndRemove(req.params.id)
+	.exec(function(err, user) {
+		if (err) console.log(err);
+		console.log('User Deleted!');
+		res.redirect('/users');
+	})
+})
 
 module.exports = router;
