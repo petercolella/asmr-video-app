@@ -1,0 +1,30 @@
+<h1>Edit {{user.username}}</h1>
+<form action="/users/{{user.id}}?_method=PUT" method="POST">
+  <div>
+    <label for="username">
+      User Name
+    </label>
+    <input type="text" name="username" value="{{user.username}}"/>
+  </div>
+  <div>
+    <label for="email">
+      Email
+    </label>
+    <input type="text" name="email" value="{{user.email}}"/>
+  </div>
+  <div>
+    <label for="password_digest">
+      Password
+    </label>
+    <input type="text" name="password_digest" value="{{user.password_digest}}"/>
+  </div>
+  <div>
+    <label for="about">
+      About Me
+    </label>
+    <input type="text" name="about" value="{{user.about}}"/>
+  </div>
+  <div>
+    <input type="submit" value="Update User"/>
+  </div>
+</form>

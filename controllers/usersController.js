@@ -21,6 +21,17 @@ router.get('/signup', function(req, res) {
 	res.render('users/signup.hbs');
 });
 
+//USER EDIT ROUTE
+router.get('/:id/edit', function(req, res) {
+  User.findById(req.params.id)
+  .exec(function(err, user) {
+    if (err) console.log(err);
+    res.render('users/edit.hbs', {
+      user: user
+    });
+  });
+});
+
 // USER SHOW ROUTE
 router.get('/:id', function(req, res){
   	User.findById(req.params.id)
