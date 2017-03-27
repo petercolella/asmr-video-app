@@ -78,7 +78,7 @@ router.post('/', /*authHelpers.createSecure,*/ function(req, res){
     res.redirect('/users/login');
   });
 });
-(
+
 //USER DELETE ROUTE
 router.delete('/:id', function(req, res) {
 	User.findByIdAndRemove(req.params.id)
@@ -86,7 +86,7 @@ router.delete('/:id', function(req, res) {
 		if (err) console.log(err);
 		console.log('User Deleted!');
 		res.redirect('/users');
-	})
-})
+	});
+});
 
 module.exports = router;

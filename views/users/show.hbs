@@ -10,6 +10,11 @@
   {{/each}}
 </ul>
 
+<nav>
+	<a href="/users/{{user.id}}/edit" class="btn btn-default">Edit Your Account</a>
+	<a href="/users" class="btn btn-default">Back to Users</a>
+</nav>
 
-<a href="/users/{{user.id}}/edit" class="btn btn-default">Edit User</a>
-<a href="/users" class="btn btn-default">Back to Users</a>
+<form action="/users/{{user.id}}?_method=DELETE" method="POST">
+	<input type="submit" value="Delete Your Account"/>
+</form>
