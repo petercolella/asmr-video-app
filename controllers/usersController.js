@@ -16,6 +16,11 @@ router.get('/', function(req, res, next) {
     });
 });
 
+//USER SIGNUP ROUTE
+router.get('/signup', function(req, res) {
+	res.render('users/signup.hbs');
+});
+
 // USER SHOW ROUTE
 router.get('/:id', function(req, res){
   	User.findById(req.params.id)
