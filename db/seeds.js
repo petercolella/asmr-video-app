@@ -6,10 +6,6 @@ var Video = require('../models/video');
 
 mongoose.Promise = global.Promise;
 
-Video.remove({}, function(err){
-  console.log(err);
-});
-
 User.remove({}, function(err){
   console.log(err);
 });
@@ -19,7 +15,7 @@ var firstUser = new User({
   	email: 'peter.joseph.colella@gmail.com',
   	password_digest: '1234',
   	about: 'I am new here.',
-  	video: [{
+  	videos: [{
   		artist_name: 'WhispersAudios ASMR',
   		video_title: 'ASMR - Annual Physical Exam with Dr. Hastings',
   		genre: 'Role Play',
@@ -45,7 +41,7 @@ var secondUser = new User({
   	email: 'peter.joseph.colella@gmail.com',
   	password_digest: '1234',
   	about: 'None of your business.',
-  	video: [{
+  	videos: [{
   		artist_name: 'WhispersAudios ASMR',
   		video_title: 'ASMR - Annual Physical Exam with Dr. Hastings',
   		genre: 'Role Play',

@@ -14,12 +14,20 @@ var VideoSchema = new Schema({
 	url: String
 })
 
+VideoSchema.pre('save', function(next) {
+  now = new Date();
+  this.updated_at = now;
+
+  if (!this.created_at) { this.created_at = now}
+    next()
+})
+
 var UserSchema = new Schema({
 	username: String,
   email: String,
   password_digest: String,
   about: String,
-  video: [VideoSchema],
+  videos: [VideoSchema],
   created_at: Date,
   updated_at: Date
 });

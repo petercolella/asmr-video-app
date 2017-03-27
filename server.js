@@ -15,7 +15,8 @@ var db = require('./db');
 mongoose.connect('mongodb://localhost/asmr-video-app');
 
 var index = require('./controllers/index');
-var users = require('./controllers/usersController');
+var usersController = require('./controllers/usersController');
+var videosController = require('./controllers/videosController');
 
 var app = express();
 
@@ -39,7 +40,8 @@ app.use(session({
 }));
 
 app.use('/', index);
-app.use('/users', users);
+app.use('/users', usersController);
+app.use('/users/:userId/videos', videosController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -58,21 +60,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// // Now that we're connected, let's save that connection to the database in a variable.
-// var db = mongoose.connection;
-
-// // Will log an error if db can't connect to MongoDB
-// db.on('error', function(err){
-//   console.log(err);
-// });
-
-// // Will log "database has been connected" if it successfully connects.
-// db.once('open', function() {
-//   console.log("database has been connected!");
-// });
-
-//added listen function
 
 module.exports = app;
 
