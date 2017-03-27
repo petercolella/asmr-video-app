@@ -33,4 +33,20 @@ router.get('/:id', function(req, res){
   	});
 });
 
+router.post('/', /*authHelpers.createSecure,*/ function(req, res){
+
+  var user = new User({
+    email: req.body.email,
+    username: req.body.username,
+    password_digest: res.hashedPassword
+  });
+
+  user.save(function(err, user){
+    if (err) console.log(err);
+    console.log(user);
+    console.log(req.session.currentUser);
+    res.redirect('/users/login');
+  });
+});
+
 module.exports = router;

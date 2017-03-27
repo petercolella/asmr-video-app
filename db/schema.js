@@ -16,12 +16,12 @@ var VideoSchema = new Schema({
 
 var UserSchema = new Schema({
 	username: String,
-  	email: String,
-  	password_digest: String,
-  	about: String,
-  	video: [VideoSchema],
-  	created_at: Date,
-  	updated_at: Date
+  email: String,
+  password_digest: String,
+  about: String,
+  video: [VideoSchema],
+  created_at: Date,
+  updated_at: Date
 });
 
 UserSchema.pre('save', function(next) {
