@@ -37,7 +37,7 @@ router.post('/', /*authHelpers.createSecure,*/ function createVideo(req, res) {
 		const newVideo = {
 			artist_name: req.body.artist_name,
 			video_title: req.body.video_title,
-			genre: req.blody.genre,
+			genre: req.body.genre,
 			language: req.body.language,
 			triggers: req.body.triggers,
 			date: req.body.date,
@@ -80,7 +80,7 @@ router.delete('/:id', function deleteVideo(req, res) {
 	.exec(function (err, user) {
 		if (err) console.log(err);
 		console.log('Video Deleted!');
-		res.redirect('/users/' + user.id + '/videos'); 
+		res.redirect('/users/' + user.id + '/videos/'); 
 	})
 })
 

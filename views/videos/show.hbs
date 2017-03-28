@@ -1,0 +1,21 @@
+<h1>{{user.username}}'s Video</h1>
+
+<h3>Title: {{video.video_title}}</h3>
+<ul>
+  <li>ASMR Artist: {{video.artist_name}}</li>
+  <li>Genre: {{video.genre}}</li>
+  <li>Language: {{video.language}}</li>
+  <li>Triggers: {{video.triggers}}</li>
+  <li>Date Uploaded: {{video.date}}</li>
+  <li>Video Length: {{video.length_in_mins}} Minutes</li>
+  <li><a href="{{video.url}}">Click here to go watch the video!</a></li>
+</ul>
+
+<nav>
+	<a href="/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
+	<a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of This User's Videos</a>
+</nav>
+
+<form action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
+	<input type="submit" value="Delete This Video"/>
+</form>
