@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     .exec(function(err, users){
 	    if (err) { console.log(err); }
 	    console.log(users);
-	    res.render('users/index.hbs', {
+	    res.render('users/index', {
 	        users: users
 	    });
     });
@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 
 //USER SIGNUP ROUTE
 router.get('/signup', function(req, res) {
-	res.render('users/signup.hbs');
+	res.render('users/signup');
 });
 
 //USER EDIT ROUTE
@@ -26,7 +26,7 @@ router.get('/:id/edit', function(req, res) {
   	User.findById(req.params.id)
   	.exec(function(err, user) {
     	if (err) console.log(err);
-    	res.render('users/edit.hbs', {
+    	res.render('users/edit', {
       		user: user
     	});
   	});
@@ -44,7 +44,7 @@ router.put('/:id', function(req, res) {
 			if (err) console.log(err);
 			console.log(user);
 			// res.send(user);
-			res.render('users/show.hbs', {
+			res.render('users/show', {
 				user: user
 			});
 		});
@@ -56,7 +56,7 @@ router.get('/:id', function(req, res){
   	.exec(function(err, user) {
     	if (err) console.log(err);
     	console.log(user);
-    	res.render('users/show.hbs', {
+    	res.render('users/show', {
       		user: user
     	});
   	});

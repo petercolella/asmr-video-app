@@ -7,12 +7,12 @@
   <li>Language: {{video.language}}</li>
   <li>Triggers: {{video.triggers}}</li>
   <li>Date Uploaded: {{video.date}}</li>
-  <li>Video Length: {{video.length_in_mins}} Minutes</li>
+  <li>Video Length: {{video.video_length_mins}} Minutes</li>
   <li><a href="{{video.url}}">Click here to go watch the video!</a></li>
 </ul>
 
 <nav>
-	<a href="/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
+	<a href="/users/{{user.id}}/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
 	<a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of This User's Videos</a>
 </nav>
 

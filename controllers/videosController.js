@@ -10,7 +10,7 @@ router.get('/', function indexVideo(req, res) {
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
 			// res.send(user);
-			res.render('videos/index.hbs', {
+			res.render('videos/index', {
 				user: user
 			});
 	});
@@ -21,12 +21,11 @@ router.get('/new', function newVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
-			res.render('videos/new.hbs', {
+			res.render('videos/new', {
 				user: user
 			});
 	});
 });
-
 
 //VIDEO CREATE ROUTE
 router.post('/', /*authHelpers.createSecure,*/ function createVideo(req, res) {
@@ -59,10 +58,9 @@ router.post('/', /*authHelpers.createSecure,*/ function createVideo(req, res) {
 	});
 });
 
-
 //VIDEO SHOW ROUTE
 router.get('/:id', function showVideo(req, res) {
-  User.findById(req.params.userId)
+  	User.findById(req.params.userId)
     .exec(function (err, user) {
 	    if (err) { console.log(err); }
 	    const video = user.videos.id(req.params.id);
@@ -71,6 +69,45 @@ router.get('/:id', function showVideo(req, res) {
 	        video: video,
 	        user: user
       	});
+    });
+});
+
+//VIDEO EDIT ROUTE
+router.get('/:id/edit', function editVideo(req, res) {
+	User.findById(req.params.userId)
+	.exec(function (err, user) {
+		if (err) { console.log(err); }
+		const video = user.videos.id(req.params.id);
+
+		res.render('videos/edit', {
+			video: video,
+			user: user
+		});
+	});
+});
+
+//VIDEO UPDATE ROUTE
+router.put('/:id', function updateProjectIdea(req, res){
+  User.findById(req.params.userId)
+    .exec(function (err, user){
+      	if (err) { console.log(err); }
+      	const video = user.videos.id(req.params.id);
+		
+		artist_name = req.body.artist_name,
+		video_title = req.body.video_title,
+		genre = req.body.genre,
+		language = req.body.language,
+		triggers = req.body.triggers,
+		date = req.body.date,
+		video_length_mins = req.body.video_length_mins,
+		url = req.body.url
+
+		user.save();
+
+      	res.render('videos/show', {
+        	video: video,
+        	user: user
+      });
     });
 });
 
