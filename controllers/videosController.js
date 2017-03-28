@@ -3,6 +3,7 @@ var router = express.Router({mergeParams: true});
 
 var User = require('../models/user');
 var Video = require('../models/video');
+var authHelpers = require('../helpers/auth.js');
 
 //VIDEO INDEX ROUTE
 router.get('/', function indexVideo(req, res) {
@@ -17,7 +18,7 @@ router.get('/', function indexVideo(req, res) {
 });
 
 //VIDEO NEW ROUTE
-router.get('/new', function newVideo(req, res) {
+router.get('/new', authHelpers.authorize, function newVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
@@ -28,7 +29,7 @@ router.get('/new', function newVideo(req, res) {
 });
 
 //VIDEO CREATE ROUTE
-router.post('/', /*authHelpers.createSecure,*/ function createVideo(req, res) {
+router.post('/', authHelpers.authorize, function createVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user){
 		if (err) { console.log(err); }
@@ -73,7 +74,7 @@ router.get('/:id', function showVideo(req, res) {
 });
 
 //VIDEO EDIT ROUTE
-router.get('/:id/edit', function editVideo(req, res) {
+router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
@@ -86,7 +87,7 @@ router.get('/:id/edit', function editVideo(req, res) {
 });
 
 //VIDEO UPDATE ROUTE
-router.put('/:id', function updateVideo(req, res) {
+router.put('/:id', authHelpers.authorize, function updateVideo(req, res) {
 	User.findByIdAndUpdate(req.params.id, {
 		artist_name: req.body.artist_name,
 		video_title: req.body.video_title,
@@ -107,7 +108,7 @@ router.put('/:id', function updateVideo(req, res) {
 });
 
 //VIDEO DELETE ROUTE
-router.delete('/:id', function deleteVideo(req, res) {
+router.delete('/:id', authHelpers.authorize, function deleteVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) console.log(err);

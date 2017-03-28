@@ -24,7 +24,7 @@ router.get('/signup', function(req, res) {
 });
 
 //USER EDIT ROUTE
-router.get('/:id/edit', function(req, res) {
+router.get('/:id/edit', authHelpers.authorize, function(req, res) {
   	User.findById(req.params.id)
   	.exec(function(err, user) {
     	if (err) console.log(err);
@@ -35,7 +35,7 @@ router.get('/:id/edit', function(req, res) {
 });
 
 //USER UPDATE ROUTE
-router.put('/:id', authHelpers.createSecure, function(req, res) {
+router.put('/:id', authHelpers.authorize, function(req, res) {
 	User.findByIdAndUpdate(req.params.id, {
 		username: req.body.username,
 		email: req.body.email,
@@ -82,7 +82,7 @@ router.post('/', authHelpers.createSecure, function(req, res){
 });
 
 //USER DELETE ROUTE
-router.delete('/:id', function(req, res) {
+router.delete('/:id', authHelpers.authorize, function(req, res) {
 	User.findByIdAndRemove(req.params.id)
 	.exec(function(err, user) {
 		if (err) console.log(err);
