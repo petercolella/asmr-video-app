@@ -1,9 +1,9 @@
 <h2>{{user.username}}</h2>
 <p>{{user.about}}</p>
 
-<h3>Videos:</h3>
+<h3><a href="/users/{{user.id}}/videos">Videos (Click Here):</a></h3>
 <ul>
-  {{#each user.video}}
+  {{#each user.videos}}
   	<li>
     	<p>Title: {{this.video_title}}</p>
     </li>
