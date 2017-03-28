@@ -3,6 +3,8 @@ var router = express.Router();
 
 var User = require('../models/user');
 
+var authHelpers = require('../helpers/auth.js');
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   // res.send('respond with a resource');
@@ -33,7 +35,7 @@ router.get('/:id/edit', function(req, res) {
 });
 
 //USER UPDATE ROUTE
-router.put('/:id', function(req, res) {
+router.put('/:id', authHelpers.createSecure, function(req, res) {
 	User.findByIdAndUpdate(req.params.id, {
 		username: req.body.username,
 		email: req.body.email,
@@ -63,7 +65,7 @@ router.get('/:id', function(req, res){
 });
 
 //USER CREATE ROUTE
-router.post('/', /*authHelpers.createSecure,*/ function(req, res){
+router.post('/', authHelpers.createSecure, function(req, res){
 
   var user = new User({
     email: req.body.email,

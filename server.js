@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost/asmr-video-app');
 var index = require('./controllers/index');
 var usersController = require('./controllers/usersController');
 var videosController = require('./controllers/videosController');
+var sessionsController = require('./controllers/sessions');
 
 var app = express();
 
@@ -42,6 +43,7 @@ app.use(session({
 app.use('/', index);
 app.use('/users', usersController);
 app.use('/users/:userId/videos', videosController);
+app.use('/sessions', sessionsController);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
