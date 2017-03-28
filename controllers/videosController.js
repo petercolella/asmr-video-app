@@ -76,12 +76,19 @@ router.get('/:id', function showVideo(req, res) {
 
 //VIDEO DELETE ROUTE
 router.delete('/:id', function deleteVideo(req, res) {
-	User.findByIdAndRemove(req.params.userId)
+	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) console.log(err);
+
+		user.videos.id(req.params.id).remove();
+
+		user.save(function(err) {
+			if (err) console.log(err);
 		console.log('Video Deleted!');
+		});
+
 		res.redirect('/users/' + user.id + '/videos/'); 
-	})
-})
+	});
+});
 
 module.exports = router;
