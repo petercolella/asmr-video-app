@@ -18,7 +18,7 @@ router.get('/', function indexVideo(req, res) {
 });
 
 //VIDEO NEW ROUTE
-router.get('/new', authHelpers.authorize, function newVideo(req, res) {
+router.get('/new', /*authHelpers.authorize, */function newVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
@@ -29,7 +29,7 @@ router.get('/new', authHelpers.authorize, function newVideo(req, res) {
 });
 
 //VIDEO CREATE ROUTE
-router.post('/', authHelpers.authorize, function createVideo(req, res) {
+router.post('/', /*authHelpers.authorize, */function createVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user){
 		if (err) { console.log(err); }
@@ -74,7 +74,7 @@ router.get('/:id', function showVideo(req, res) {
 });
 
 //VIDEO EDIT ROUTE
-router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
+router.get('/:id/edit', /*authHelpers.authorize, */function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
@@ -87,28 +87,23 @@ router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 });
 
 //VIDEO UPDATE ROUTE
-router.put('/:id', authHelpers.authorize, function updateVideo(req, res) {
-	User.findByIdAndUpdate(req.params.id, {
-		artist_name: req.body.artist_name,
-		video_title: req.body.video_title,
-		genre: req.body.genre,
-		language: req.body.language,
-		triggers: req.body.triggers,
-		date: req.body.date,
-		video_length_mins: req.body.video_length_mins,
-		url: req.body.url
-	}, { new: true })
+router.patch('/:id', /*authHelpers.authorize, */function updateVideo(req, res) {
+	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) console.log(err);
-		console.log(user);
+		var video = user.videos.id(req.params.id)
+		video.set(req.body)
+		user.save()
+
 		res.render('videos/show', {
+			video: video,
 			user: user
 		});
 	});
 });
 
 //VIDEO DELETE ROUTE
-router.delete('/:id', authHelpers.authorize, function deleteVideo(req, res) {
+router.delete('/:id', /*authHelpers.authorize, */function deleteVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) console.log(err);

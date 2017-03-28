@@ -21,6 +21,7 @@ function loginUser(req, res, next) {
 
     } else if (bcrypt.compareSync(password, foundUser.password_digest)) {
       req.session.currentUser = foundUser;
+      console.log(req.session.currentUser)
     }
     next()
   })
@@ -30,9 +31,14 @@ function loginUser(req, res, next) {
 }
 
 function authorize(req, res, next) {
+  if (!req.session || !req.session.currentUser) {
+    console.log('Lost session')
+  }
+
   var currentUser = req.session.currentUser;
 
   if (!currentUser || currentUser._id !== req.params.id ) {
+    console.log(currentUser);
     res.json({status: 401, data: 'unauthorized'});
   } else {
     next();

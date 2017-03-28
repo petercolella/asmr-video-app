@@ -9,6 +9,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var methodOverride = require('method-override');
+var livereload = require('connect-livereload');
 
 var db = require('./db');
 
@@ -36,7 +37,7 @@ app.use(methodOverride('_method'));
 
 app.use(session({
   secret: "derpderpderpcats",
-  resave: false,
+  resave: true,
   saveUninitialized: false
 }));
 
@@ -44,6 +45,7 @@ app.use('/', index);
 app.use('/users', usersController);
 app.use('/users/:userId/videos', videosController);
 app.use('/sessions', sessionsController);
+app.use(livereload());
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

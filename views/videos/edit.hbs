@@ -1,6 +1,6 @@
 <h1>Edit This Video: {{video.video_title}}</h1>
 <br>
-<form action="/users/{{user.id}}/videos/{{video.id}}?_method=PUT" method="POST">
+<form action="/users/{{user.id}}/videos/{{video.id}}?_method=PATCH" method="POST">
   <div>
     <label for="video_title">Title:</label>
     <input type="text" name="video_title" value="{{video.video_title}}"/>
