@@ -78,7 +78,6 @@ router.get('/:id/edit', function editVideo(req, res) {
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
 		const video = user.videos.id(req.params.id);
-
 		res.render('videos/edit', {
 			video: video,
 			user: user
@@ -87,28 +86,24 @@ router.get('/:id/edit', function editVideo(req, res) {
 });
 
 //VIDEO UPDATE ROUTE
-router.put('/:id', function updateProjectIdea(req, res){
-  User.findById(req.params.userId)
-    .exec(function (err, user){
-      	if (err) { console.log(err); }
-      	const video = user.videos.id(req.params.id);
-		
-		artist_name = req.body.artist_name,
-		video_title = req.body.video_title,
-		genre = req.body.genre,
-		language = req.body.language,
-		triggers = req.body.triggers,
-		date = req.body.date,
-		video_length_mins = req.body.video_length_mins,
-		url = req.body.url
-
-		user.save();
-
-      	res.render('videos/show', {
-        	video: video,
-        	user: user
-      });
-    });
+router.put('/:id', function updateVideo(req, res) {
+	User.findByIdAndUpdate(req.params.id, {
+		artist_name: req.body.artist_name,
+		video_title: req.body.video_title,
+		genre: req.body.genre,
+		language: req.body.language,
+		triggers: req.body.triggers,
+		date: req.body.date,
+		video_length_mins: req.body.video_length_mins,
+		url: req.body.url
+	}, { new: true })
+	.exec(function(err, user) {
+		if (err) console.log(err);
+		console.log(user);
+		res.render('videos/show', {
+			user: user
+		});
+	});
 });
 
 //VIDEO DELETE ROUTE
