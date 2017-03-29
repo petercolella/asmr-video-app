@@ -8,7 +8,7 @@
 <form action="/users/{{user.id}}/videos/" method="POST">
   <div>
     <label for="artist_name">What is the artist's name?</label>
-    <input type="text" name="artist">
+    <input type="text" name="artist_name">
   </div>
 
   <div>
@@ -18,7 +18,49 @@
 
   <div>
     <label for="genre">What is the video's genre?</label>
-    <input type="text" name="genre">
+    <!-- <input type="text" name="genre"> -->
+  </div>
+
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Soft Spoken"/>
+    Soft Spoken
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="No Talking"/>
+    No Talking
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Eating"/>
+    Eating
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Role Play"/>
+    Role Play
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Massage"/>
+    Massage
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Doing Makeup"/>
+    Doing Makeup
+  </label>
+  </div><div class="checkbox">
+  <label for="genre">
+    <input name="genre" type="checkbox" value="Men's Shaving"/>
+    Men's Shaving
+  </label>
   </div>
 
   <div>
@@ -28,7 +70,50 @@
 
   <div>
     <label for="triggers">What triggers are in the video?</label>
-    <input type="text" name="triggers">
+    <!-- <input type="text" name="triggers"> -->
+  </div>
+
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Whispering"/>
+    Whispering
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Tapping"/>
+    Tapping
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Brushing"/>
+    Brushing
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Page Turning"/>
+    Page Turning
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Crinkle Sounds"/>
+    Crinkle Sounds
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Mouth Sounds"/>
+    Mouth Sounds
+  </label>
+  </div>
+  <div class="checkbox">
+  <label for="triggers">
+    <input name="triggers" type="checkbox" value="Water Sounds"/>
+    Water sounds
+  </label>
   </div>
 
   <div>
@@ -42,9 +127,11 @@
   </div>
 
   <div>
-    <label for="url">Please paste the video url here.</label>
+    <label for="url">Please paste the HTML Embed Code here.</label>
     <input type="text" name="url">
+    <img src="/images/embed.png" width="648">
   </div>
+  <br>
 
   <input type="submit" value="Submit">
 </form>

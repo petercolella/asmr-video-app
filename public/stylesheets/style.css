@@ -43,6 +43,7 @@ ul {
     list-style-type: none;
     padding: 0px;
     text-align: center;
+    width: 100%;
 }
 
 ol li {
@@ -63,12 +64,16 @@ form{
   margin: 0 auto
 }
 
+label:hover {
+  background-color: #39FF14;
+}
+
 input[type=text]{
   border: 0;
   outline: 0;
   background: transparent;
   border-bottom: 2px solid black;
-  width: 350px;
+  width: 100%;
   font-size: 24px;
   margin-bottom: 0.5em;
 }
