@@ -13,7 +13,7 @@ var livereload = require('connect-livereload');
 
 var db = require('./db');
 
-mongoose.connect('mongodb://localhost/asmr-video-app');
+// mongoose.connect('mongodb://localhost/asmr-video-app');
 
 var index = require('./controllers/index');
 var usersController = require('./controllers/usersController');
