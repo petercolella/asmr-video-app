@@ -32,6 +32,7 @@ mongoose.connection.on('error', function(err) {
   }
 );
 mongoose.connection.once('open', function() {
+  console.log(process.env.MONGODB_URI)
   console.log("Mongoose has connected to MongoDB!");
 });
 
