@@ -1,7 +1,11 @@
+<body background="/images/img4.jpg" style="background-size: cover;">
+
+<div style="color: white; text-shadow: 1px 1px black;">
+
 <h2>{{user.username}}</h2>
 <p>{{user.about}}</p>
 
-<h3><a href="/users/{{user.id}}/videos">Videos (Click Here):</a></h3>
+<h3><a href="/users/{{user.id}}/videos">My Favorite Videos (Click here to see them!):</a></h3>
 <ul>
   {{#each user.videos}}
   	<li>
@@ -10,11 +14,22 @@
   {{/each}}
 </ul>
 
-<nav>
-	<a href="/users/{{user.id}}/edit" class="btn btn-default">Edit Your Account</a>
-	<a href="/users" class="btn btn-default">Back to Users</a>
-</nav>
-
-<form action="/users/{{user.id}}?_method=DELETE" method="POST">
+<form style="text-align: center;" action="/users/{{user.id}}?_method=DELETE" method="POST">
 	<input type="submit" value="Delete Your Account"/>
 </form>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div style="display: inline-flex;">
+<nav>
+	<a href="/users/{{user.id}}/edit" class="btn btn-default">Edit Your Account</a>
+	<a href="/users" class="btn btn-default">Back to Users</a>	
+</nav>
+
+</div>
+
+</body>

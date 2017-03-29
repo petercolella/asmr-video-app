@@ -1,21 +1,77 @@
-<h1>{{user.username}}'s Video</h1>
+<body background="/images/img9.jpg" style="background-size: cover;">
+<div style="color: white; text-shadow: 2px 2px black;">
 
-<h3>Title: {{video.video_title}}</h3>
-<ul>
-  <li>ASMR Artist: {{video.artist_name}}</li>
+<br>
+<br>
+<br>
+<h1>{{video.video_title}}</h1>
+<ul style="font-size: 1.5em;">
+  <li>Artist: {{video.artist_name}}</li>
   <li>Genre: {{video.genre}}</li>
   <li>Language: {{video.language}}</li>
   <li>Triggers: {{video.triggers}}</li>
   <li>Date Uploaded: {{video.date}}</li>
   <li>Video Length: {{video.video_length_mins}} Minutes</li>
-  <li><a href="{{video.url}}">Click here to go watch the video!</a></li>
+  <br>
+  <!-- <li><a href="{{video.url}}" style="color: yellow; font-size: 2em;" >Click here to go watch the video!</a></li> -->
+  {{{video.url}}}
+
+<script type="text/javascript">
+  var tag = document.createElement('script');
+  tag.id = 'iframe-demo';
+  tag.src = 'https://www.youtube.com/iframe_api';
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var onPlayerReady;
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('existing-iframe-example', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+    });
+  }
+  function changeBorderColor(playerStatus) {
+    var color;
+    if (playerStatus == -1) {
+      color = "#37474F"; // unstarted = gray
+    } else if (playerStatus == 0) {
+      color = "#FFFF00"; // ended = yellow
+    } else if (playerStatus == 1) {
+      color = "#33691E"; // playing = green
+    } else if (playerStatus == 2) {
+      color = "#DD2C00"; // paused = red
+    } else if (playerStatus == 3) {
+      color = "#AA00FF"; // buffering = purple
+    } else if (playerStatus == 5) {
+      color = "#FF6DOO"; // video cued = orange
+    }
+    if (color) {
+      document.getElementById('existing-iframe-example').style.borderColor = color;
+    }
+  }
+  function onPlayerStateChange(event) {
+    changeBorderColor(event.data);
+  }
+</script>
 </ul>
 
+<form style="text-align: center;" action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
+  <input type="submit" value="Delete This Video :("/>
+</form>
+
+</div>
+
+<br>
+<br>
+<br>
+
+<div style="display: inline-flex;">
 <nav>
 	<a href="/users/{{user.id}}/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
-	<a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of This User's Videos</a>
+	<a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of {{user.username}}'s Videos</a>
 </nav>
 
-<form action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
-	<input type="submit" value="Delete This Video"/>
-</form>
+</div>
+</body>

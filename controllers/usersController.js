@@ -82,7 +82,7 @@ router.post('/', /*authHelpers.createSecure, */function createAction(req, res){
     if (err) console.log(err);
     console.log(user);
     console.log(req.session.currentUser);
-    res.redirect('sessions/login');
+    res.redirect('/users');
   });
 });
 

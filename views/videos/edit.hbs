@@ -1,47 +1,57 @@
+<body background="/images/img5.jpg" style="background-size: cover;">
+
+<div style="color: white; text-shadow: 2px 2px black;">
+
+<br>
+<br>
+<br>
 <h1>Edit This Video: {{video.video_title}}</h1>
 <br>
 <form action="/users/{{user.id}}/videos/{{video.id}}?_method=PATCH" method="POST">
   <div>
     <label for="video_title">Title:</label>
-    <input type="text" name="video_title" value="{{video.video_title}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="video_title" value="{{video.video_title}}"/>
   </div>
 
   <div>
     <label for="artist_name">ASMR Artist:</label>
-    <input type="text" name="artist_name" value="{{video.artist_name}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="artist_name" value="{{video.artist_name}}"/>
   </div>
   
   <div>
     <label for="genre">Genre:</label>
-    <input type="text" name="genre" value="{{video.genre}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="genre" value="{{video.genre}}"/>
   </div>
   
   <div>
     <label for="language">Language:</label>
-    <input type="text" name="language" value="{{video.language}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="language" value="{{video.language}}"/>
   </div>
   
   <div>
     <label for="triggers">Triggers:</label>
-    <input type="text" name="triggers" value="{{video.triggers}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="triggers" value="{{video.triggers}}"/>
   </div>
   
   <div>
     <label for="date">Date Uploaded:</label>
-    <input type="text" name="date" value="{{video.date}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="date" value="{{video.date}}"/>
   </div>
   
   <div>
     <label for="video_length_mins">Video Length in Minutes:</label>
-    <input type="text" name="video_length_mins" value="{{video.video_length_mins}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="video_length_mins" value="{{video.video_length_mins}}"/>
   </div>
   
   <div>
     <label for="url">Url of Video:</label>
-    <input type="text" name="url" value="{{video.url}}"/>
+    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="url" value="{{video.url}}"/>
   </div>
   
   <div>
     <input type="submit" value="Update Video Information"/>
   </div>
 </form>
+
+</div>
+</body>

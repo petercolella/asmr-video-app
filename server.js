@@ -12,9 +12,9 @@ var methodOverride = require('method-override');
 var livereload = require('connect-livereload');
 require('dotenv').config()
 
-// var db = require('./db');
+var db = require('./db');
 
-// mongoose.connect('mongodb://localhost/asmr-video-app');
+mongoose.connect('mongodb://localhost/asmr-video-app');
 
 var index = require('./controllers/index');
 var usersController = require('./controllers/usersController');
@@ -23,18 +23,18 @@ var sessionsController = require('./controllers/sessions');
 
 var app = express();
 
-// Connect to database
-mongoose.connect(process.env.MONGODB_URI);
+// // Connect to database
+// mongoose.connect(process.env.MONGODB_URI);
 
-mongoose.connection.on('error', function(err) {
-  console.error('MongoDB connection error: ' + err);
-  process.exit(-1);
-  }
-);
-mongoose.connection.once('open', function() {
-  console.log(process.env.MONGODB_URI)
-  console.log("Mongoose has connected to MongoDB!");
-});
+// mongoose.connection.on('error', function(err) {
+//   console.error('MongoDB connection error: ' + err);
+//   process.exit(-1);
+//   }
+// );
+// mongoose.connection.once('open', function() {
+//   console.log(process.env.MONGODB_URI)
+//   console.log("Mongoose has connected to MongoDB!");
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -81,6 +81,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-// app.listen(5000, function(){
-//   console.log("app listening on port 5000");
-// });
+app.listen(5000, function(){
+  console.log("app listening on port 5000");
+});

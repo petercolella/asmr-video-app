@@ -1,3 +1,4 @@
+<body background="../images/img7.jpg" style="background-size: cover;">
 <h1>Users:</h1>
 
 
@@ -6,8 +7,10 @@
   	<li>
     	<h2><a href="/users/{{this.id}}/">{{this.username}}</a></h2>
     	<p>{{this.about}}</p>
+    	<p>{{this.username}} has {{this.videos.length}} video(s).</p>
+    	<br>
     </li>
   {{/each}}
 </ul>
 
-<a href="/" class="btn btn-default">Welcome Page</a>
+</body>
