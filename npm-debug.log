@@ -1,102 +1,47 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/usr/local/Cellar/node/7.5.0/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'bugs',
-1 verbose cli   'asmr-video-app' ]
+1 verbose cli   'start' ]
 2 info using npm@4.1.2
 3 info using node@v7.5.0
-4 silly fetchPackageMetaData asmr-video-app
-5 silly fetchNamedPackageData asmr-video-app
-6 silly mapToRegistry name asmr-video-app
-7 silly mapToRegistry using default registry
-8 silly mapToRegistry registry https://registry.npmjs.org/
-9 silly mapToRegistry data Result {
-9 silly mapToRegistry   raw: 'asmr-video-app',
-9 silly mapToRegistry   scope: null,
-9 silly mapToRegistry   escapedName: 'asmr-video-app',
-9 silly mapToRegistry   name: 'asmr-video-app',
-9 silly mapToRegistry   rawSpec: '',
-9 silly mapToRegistry   spec: 'latest',
-9 silly mapToRegistry   type: 'tag' }
-10 silly mapToRegistry uri https://registry.npmjs.org/asmr-video-app
-11 verbose request uri https://registry.npmjs.org/asmr-video-app
-12 verbose request no auth needed
-13 info attempt registry request try #1 at 8:25:11 PM
-14 verbose request id c95c2475c77c69f8
-15 http request GET https://registry.npmjs.org/asmr-video-app
-16 http 404 https://registry.npmjs.org/asmr-video-app
-17 verbose headers { 'content-type': 'application/json',
-17 verbose headers   'cache-control': 'max-age=0',
-17 verbose headers   'content-length': '2',
-17 verbose headers   'accept-ranges': 'bytes',
-17 verbose headers   date: 'Wed, 29 Mar 2017 00:25:12 GMT',
-17 verbose headers   via: '1.1 varnish',
-17 verbose headers   age: '0',
-17 verbose headers   connection: 'keep-alive',
-17 verbose headers   'x-served-by': 'cache-atl6234-ATL',
-17 verbose headers   'x-cache': 'MISS',
-17 verbose headers   'x-cache-hits': '0',
-17 verbose headers   'x-timer': 'S1490747112.074324,VS0,VE314',
-17 verbose headers   vary: 'Accept-Encoding' }
-18 silly get cb [ 404,
-18 silly get   { 'content-type': 'application/json',
-18 silly get     'cache-control': 'max-age=0',
-18 silly get     'content-length': '2',
-18 silly get     'accept-ranges': 'bytes',
-18 silly get     date: 'Wed, 29 Mar 2017 00:25:12 GMT',
-18 silly get     via: '1.1 varnish',
-18 silly get     age: '0',
-18 silly get     connection: 'keep-alive',
-18 silly get     'x-served-by': 'cache-atl6234-ATL',
-18 silly get     'x-cache': 'MISS',
-18 silly get     'x-cache-hits': '0',
-18 silly get     'x-timer': 'S1490747112.074324,VS0,VE314',
-18 silly get     vary: 'Accept-Encoding' } ]
-19 silly fetchPackageMetaData Error: Registry returned 404 for GET on https://registry.npmjs.org/asmr-video-app
-19 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
-19 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:282:14)
-19 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
-19 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
-19 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
-19 silly fetchPackageMetaData     at Request.emit (events.js:192:7)
-19 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
-19 silly fetchPackageMetaData     at emitOne (events.js:96:13)
-19 silly fetchPackageMetaData     at Request.emit (events.js:189:7)
-19 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
-19 silly fetchPackageMetaData  error for asmr-video-app { Error: Registry returned 404 for GET on https://registry.npmjs.org/asmr-video-app
-19 silly fetchPackageMetaData     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
-19 silly fetchPackageMetaData     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:282:14)
-19 silly fetchPackageMetaData     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
-19 silly fetchPackageMetaData     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
-19 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
-19 silly fetchPackageMetaData     at Request.emit (events.js:192:7)
-19 silly fetchPackageMetaData     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
-19 silly fetchPackageMetaData     at emitOne (events.js:96:13)
-19 silly fetchPackageMetaData     at Request.emit (events.js:189:7)
-19 silly fetchPackageMetaData     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12) pkgid: 'asmr-video-app', statusCode: 404, code: 'E404' }
-20 verbose stack Error: Registry returned 404 for GET on https://registry.npmjs.org/asmr-video-app
-20 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
-20 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:282:14)
-20 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
-20 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
-20 verbose stack     at emitTwo (events.js:106:13)
-20 verbose stack     at Request.emit (events.js:192:7)
-20 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
-20 verbose stack     at emitOne (events.js:96:13)
-20 verbose stack     at Request.emit (events.js:189:7)
-20 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
-21 verbose statusCode 404
-22 verbose pkgid asmr-video-app
-23 verbose cwd /Users/petercolella/GA/asmr-video-app
-24 error Darwin 16.4.0
-25 error argv "/usr/local/Cellar/node/7.5.0/bin/node" "/usr/local/bin/npm" "bugs" "asmr-video-app"
-26 error node v7.5.0
-27 error npm  v4.1.2
-28 error code E404
-29 error 404 Registry returned 404 for GET on https://registry.npmjs.org/asmr-video-app
-30 error 404
-31 error 404 'asmr-video-app' is not in the npm registry.
-32 error 404 You should bug the author to publish it (or use the name yourself!)
-33 error 404 Note that you can also install from a
-34 error 404 tarball, folder, http url, or git url.
-35 verbose exit [ 1, true ]
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle asmr-video-app@0.0.0~prestart: asmr-video-app@0.0.0
+6 silly lifecycle asmr-video-app@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle asmr-video-app@0.0.0~start: asmr-video-app@0.0.0
+8 verbose lifecycle asmr-video-app@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle asmr-video-app@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/petercolella/GA/asmr-video-app/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+10 verbose lifecycle asmr-video-app@0.0.0~start: CWD: /Users/petercolella/GA/asmr-video-app
+11 silly lifecycle asmr-video-app@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
+12 silly lifecycle asmr-video-app@0.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle asmr-video-app@0.0.0~start: Failed to exec start script
+14 verbose stack Error: asmr-video-app@0.0.0 start: `node ./bin/www`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:192:7)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:192:7)
+14 verbose stack     at maybeClose (internal/child_process.js:890:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid asmr-video-app@0.0.0
+16 verbose cwd /Users/petercolella/GA/asmr-video-app
+17 error Darwin 16.4.0
+18 error argv "/usr/local/Cellar/node/7.5.0/bin/node" "/usr/local/bin/npm" "start"
+19 error node v7.5.0
+20 error npm  v4.1.2
+21 error code ELIFECYCLE
+22 error asmr-video-app@0.0.0 start: `node ./bin/www`
+22 error Exit status 1
+23 error Failed at the asmr-video-app@0.0.0 start script 'node ./bin/www'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the asmr-video-app package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node ./bin/www
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs asmr-video-app
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls asmr-video-app
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
