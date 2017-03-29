@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/asmr-video-app');
+mongoose.connect('mongodb://localhost/asmr-video-app');
 
 var User = require('../models/user');
 var Video = require('../models/video');

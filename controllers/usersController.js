@@ -16,7 +16,7 @@ router.get('/', function indexAction(req, res, next) {
 
 	    res.render('users/index', {
 	        users: users,
-          currentUser: currentUser
+          // currentUser: currentUser
 	    });
     });
 });

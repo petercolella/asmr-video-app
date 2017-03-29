@@ -10,6 +10,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var livereload = require('connect-livereload');
+require('dotenv').config()
 
 // var db = require('./db');
 
@@ -23,12 +24,8 @@ var sessionsController = require('./controllers/sessions');
 var app = express();
 
 // Connect to database
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-  mongoose.connect('mongodb://localhost/express-movies');
-}
+mongoose.connect(process.env.MONGODB_URI);
+
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
