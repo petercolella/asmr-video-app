@@ -3,7 +3,7 @@
 
 An application to share your favorite ASMR videos
 
-[Heroku Link] (https://secret-gorge-32743.herokuapp.com)
+[Heroku Link](https://secret-gorge-32743.herokuapp.com)
 
 [App Wireframe](https://drive.google.com/open?id=0B3Sl5935K7mwckxPNWhSM2JIV2s)
 
@@ -58,5 +58,8 @@ Video = {
 
 ## Trello
 
-[Trello Link] (https://trello.com/b/QYhNeRO2/wdi-project-two)
+[Trello Link](https://trello.com/b/QYhNeRO2/wdi-project-two)
 
+## Portfolio with link added
+
+[Portfolio Link](http://peter-colella-portfolio.bitballoon.com/)
