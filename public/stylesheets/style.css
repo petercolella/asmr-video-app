@@ -60,12 +60,22 @@ ol li {
 
 /* FORM STYLING */
 
-form{
+form {
   margin: 0 auto
+}
+
+label {
+  transition: /*border 0.3s ease,*/
+              border-radius 0.3s ease,
+              padding 0.3s ease,
+              background-color 0.3s ease;
 }
 
 label:hover {
   background-color: #39FF14;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: 0 2px;
 }
 
 input[type=text]{
