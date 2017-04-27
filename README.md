@@ -3,7 +3,7 @@
 
 An application to share your favorite ASMR videos
 
-[Heroku Link](https://secret-gorge-32743.herokuapp.com)
+[Heroku Link](https://asmr-enthusiast.herokuapp.com/)
 
 [App Wireframe](https://drive.google.com/open?id=0B3Sl5935K7mwckxPNWhSM2JIV2s)
 
