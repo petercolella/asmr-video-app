@@ -18,15 +18,17 @@ nav form {
 
 a:hover {
     color: #209aca;
+    text-decoration: none;
 }
 
 h1,h2,h3,p {
   text-align: center;
 }
 
-a:visited {
+/*a:visited {
+    color: #0000EE;
     color: #551A8B;
-}
+}*/
 
 #main-heading{
   font-size: 3em;
@@ -72,10 +74,12 @@ label {
 }
 
 label:hover {
-  background-color: #39FF14;
-  border: 2px solid white;
-  border-radius: 2px;
-  padding: 0 2px;
+  /*background-color: #39FF14;*/
+  /*border: 2px solid white;*/
+  /*border-radius: 2px;*/
+  /*padding: 0 2px;*/
+  color: #209aca;
+  cursor: pointer;
 }
 
 input[type=text]{
