@@ -8,15 +8,15 @@ var authHelpers = require('../helpers/auth.js');
 /* GET users listing. */
 router.get('/', function indexAction(req, res, next) {
   // res.send('respond with a resource');
-  // var currentUser = req.session && req.session.currentUser
-  // console.log(req.session)
+  var currentUser = req.session && req.session.currentUser
+  console.log(req.session)
   	User.find({})
     .exec(function(err, users){
 	    if (err) { console.log(err); }
 
 	    res.render('users/index', {
 	        users: users,
-          // currentUser: currentUser
+          currentUser: currentUser
 	    });
     });
 });
@@ -27,7 +27,7 @@ router.get('/signup', function newAction(req, res) {
 });
 
 //USER EDIT ROUTE
-router.get('/:id/edit', /*authHelpers.authorize, */function editAction(req, res) {
+router.get('/:id/edit', authHelpers.authorize, function editAction(req, res) {
 	User.findById(req.params.id)
   	.exec(function(err, user) {
     	if (err) console.log(err);
@@ -38,7 +38,7 @@ router.get('/:id/edit', /*authHelpers.authorize, */function editAction(req, res)
 });
 
 //USER UPDATE ROUTE
-router.put('/:id', /*authHelpers.authorize, */function updateAction(req, res) {
+router.put('/:id', authHelpers.authorize, function updateAction(req, res) {
 	User.findByIdAndUpdate(req.params.id, {
 		username: req.body.username,
 		email: req.body.email,
@@ -48,7 +48,7 @@ router.put('/:id', /*authHelpers.authorize, */function updateAction(req, res) {
 		.exec(function(err, user) {
 			if (err) console.log(err);
 			console.log(user);
-			// res.send(user);
+			res.send(user);
 			res.render('users/show', {
 				user: user
 			});
@@ -70,7 +70,7 @@ router.get('/:id', function showAction(req, res){
 });
 
 //USER CREATE ROUTE
-router.post('/', /*authHelpers.createSecure, */function createAction(req, res){
+router.post('/', authHelpers.createSecure, function createAction(req, res){
 
   var user = new User({
     email: req.body.email,
@@ -87,7 +87,7 @@ router.post('/', /*authHelpers.createSecure, */function createAction(req, res){
 });
 
 //USER DELETE ROUTE
-router.delete('/:id', /*authHelpers.authorize, */function(req, res) {
+router.delete('/:id', authHelpers.authorize, function(req, res) {
 	User.findByIdAndRemove(req.params.id)
 	.exec(function(err, user) {
 		if (err) console.log(err);
