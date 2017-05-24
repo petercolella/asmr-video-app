@@ -18,7 +18,7 @@ router.get('/', function indexVideo(req, res) {
 });
 
 //VIDEO NEW ROUTE
-router.get('/new', authHelpers.authorize, function newVideo(req, res) {
+router.get('/new', /*authHelpers.authorize,*/ function newVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
@@ -29,7 +29,7 @@ router.get('/new', authHelpers.authorize, function newVideo(req, res) {
 });
 
 //VIDEO CREATE ROUTE
-router.post('/', authHelpers.authorize, function createVideo(req, res) {
+router.post('/', /*authHelpers.authorize,*/ function createVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user){
 		if (err) { console.log(err); }
@@ -74,7 +74,7 @@ router.get('/:id', function showVideo(req, res) {
 });
 
 //VIDEO EDIT ROUTE
-router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
+router.get('/:id/edit', /*authHelpers.authorize,*/ function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
@@ -87,7 +87,7 @@ router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 });
 
 //VIDEO UPDATE ROUTE
-router.patch('/:id', authHelpers.authorize, function updateVideo(req, res) {
+router.patch('/:id', /*authHelpers.authorize,*/ function updateVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) console.log(err);
@@ -103,7 +103,7 @@ router.patch('/:id', authHelpers.authorize, function updateVideo(req, res) {
 });
 
 //VIDEO DELETE ROUTE
-router.delete('/:id', authHelpers.authorize, function deleteVideo(req, res) {
+router.delete('/:id', /*authHelpers.authorize,*/ function deleteVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) console.log(err);
