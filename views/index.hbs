@@ -1,32 +1,25 @@
 <body background="/images/img1.jpg" style="background-size: cover;">
-<!-- <nav>
-    <ul>
-        <li><a href="/users/signup">signup</a> | </li>
-        <li><a href="/sessions/login">login</a> | </li>
-        <li>
-          <form method="post" action="/sessions?_method=DELETE">
-            <input type="submit" value="logout">
-          </form>
-        </li>
-    </ul>
-</nav> -->
-<h1 id="main-heading">ASMR Trigger Happy</h1>
-<h3><a href="/users">(Click to View Our Contributors)</a></h3>
 
-<!-- <h1>{{title}}</h1>
-<p>Welcome to {{title}}</p> -->
-<p>Look Here: {{ session.users.username }}</p>
+<div class="container-fluid">
 
-<div>
-	{{{video.url}}}
+  <div class="page-header">
+    <h1 id="main-heading">ASMR Trigger Happy <small><a href="/users">(Click to View Our Contributors)</a></small></h1>
+  </div>
+
+  <!-- <p>Look Here: {{ session.users.username }}</p> -->
+
+  <div>
+  	{{{video.url}}}
+  </div>
+
+  <ul>
+  	{{#each user.videos}}
+  		<li><a href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
+  		<br/>
+  	{{/each}}
+  	<a href="/users/{{user._id}}/videos/new">New Favorite Video</a>
+  </ul>
+
 </div>
-
-<ul>
-	{{#each user.videos}}
-		<li><a href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
-		<br/>
-	{{/each}}
-	<a href="/users/{{user._id}}/videos/new">New Favorite Video</a>
-</ul>
 
 </body>
