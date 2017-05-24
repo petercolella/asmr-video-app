@@ -5,24 +5,40 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css'/>
   </head>
-  <body>
 
-  <nav>
-      <ul>
-          <li><a href="/users/signup">signup</a> | </li>
-          <li><a href="/sessions/login">login</a> | </li>
-          <li><a href="/">Home Page</a> | </li>
-          <li>
-            <form method="post" action="/sessions?_method=DELETE">
-              <input type="submit" value="logout">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">ASMR Trigger Happy</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/users/signup">signup</a></li>
+            <li><a href="/sessions/login">login</a></li>
+            <form class="navbar-form navbar-right" method="post" action="/sessions?_method=DELETE">
+              <div class="form-group">
+                <!-- <input type="submit" value="logout"> -->
+                <button type="submit" class="btn btn-default">logout</button>
+              </div>
             </form>
-          </li>
-      </ul>
-  </nav>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container-fluid">
 
     {{{body}}}
     
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </body>
+	</div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
 </html>
