@@ -1,16 +1,43 @@
 <body background="/images/img2.jpg" style="background-size: cover;">
 
-<h2>{{user.username}}'s Favorite ASMR Videos</h2>
+	<div class="container">
+		<div style="color: white; text-shadow: 1px 1px black;">
+			<div class="page-header">
+				<h1 id="main-heading">{{user.username}}'s Favorite ASMR Videos</h2>
+			</div>
+		</div>
 
-<ul>
-	{{#each user.videos}}
-		<li><a href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
-		<br/>
-	{{/each}}
-	<a href="/users/{{user.id}}/videos/new">New Favorite Video</a>
-</ul>
+		<ul>
+			{{#each user.videos}}
+				<li><a href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
+				<br/>
+			{{/each}}
+		</ul>
+		<a class="btn btn-default" href="/users/{{user.id}}/videos/new">Add a New Favorite Video</a>
 
-<a href="/users/{{user.id}}" class="btn btn-default">Back to {{user.username}}'s Account</a>
+	</div>
 
-</div>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+	  <div class="container">
+	  	<div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/users/{{user.id}}">Back to {{user.username}}'s Account</a>
+        </div>
+	  	<!-- <div id="navbar" class="navbar-collapse collapse">
+		  	<ul class="nav navbar-nav navbar-right">
+	            <li><a href="/users/{{user.id}}/edit">Edit Your Account</a></li>
+	            <form class="navbar-form navbar-right" action="/users/{{user.id}}?_method=DELETE" method="POST">
+		          <div class="form-group">
+		            <button type="submit" class="btn btn-default">Delete Your Account</button>
+		          </div>
+		        </form>
+	        </ul>
+        </div> -->
+	  </div>
+	</nav>
 </body>
