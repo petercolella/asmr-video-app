@@ -3,54 +3,63 @@
 <div class="container-fluid">
 
   <div class="page-header">
-    <h1 id="main-heading">ASMR Trigger Happy <small><a href="/users">(Click to View Our Contributors)</a></small></h1>
+    <h1 id="main-heading">ASMR Trigger Happy <small><a href="/users">Click to View Our Contributors</a></small></h1>
   </div>
 
-  <!-- <p>Look Here: {{ session.users.username }}</p> -->
-
-  <div class="row">
-    <div class="col-xs-6 col-md-3">
-      <a href="https://asmr-trigger-happy.herokuapp.com/users/58dbf289d9675a0011dbef8b/videos/58dbf401d9675a0011dbef8d" class="thumbnail">
-        <img src="/images/i-will-fix-you.png" alt="i-will-fix-you">
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-6 col-md-3">
-      <a href="https://asmr-trigger-happy.herokuapp.com/users/58dbf289d9675a0011dbef8b/videos/58dc00f436b2e00011d7d3c7" class="thumbnail">
-        <img src="/images/cranial-nerves-exam.png" alt="cranial-nerves-exam">
-      </a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-6 col-md-3">
+  <!-- <div> -->
+  <!-- <div class="row">
+    <div class="col-xs-12 col-md-3">
       <a href="https://asmr-trigger-happy.herokuapp.com/users/58dbf289d9675a0011dbef8b/videos/5925f358559d7900115f83ef" class="thumbnail">
         <img src="/images/marshmallow-eating-sound.png" alt="marshmallow-eating-sound">
       </a>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 
-  <div class="row">
-    <div class="col-xs-6 col-md-3">
+  <!-- <div class="row"> -->
+    <!-- <div class="col-xs-12 col-md-3">
       <a href="https://asmr-trigger-happy.herokuapp.com/users/58dbf289d9675a0011dbef8b/videos/5925f60d8785f600111d0031" class="thumbnail">
         <img src="/images/facehugger-removal.png" alt="facehugger-removal">
       </a>
     </div>
+  </div> -->
+  
+  <div class="row">
+    <!-- <div class="col-xs-12 col-md-6"> -->
+      <!-- <div>
+        <ul> -->
+        <!-- <div class="thumbnail"> -->
+        	{{#each users}}
+            
+              {{#each videos}}
+                
+                <div class="col-xs-12 col-md-6">
+                <div style="width: 50% !important; height: auto !important;">{{{url}}}</div>
+                <a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a>
+                <br>
+                <br>
+                </div>
+                
+              {{/each}}
+            
+          {{/each}}
+        <!-- </div> -->
+        <!-- </ul>
+      </div> -->
+    <!-- </div> -->
   </div>
 
-  <div>
-  	{{{video.url}}}
-  </div>
-
-  <ul>
-  	{{#each user.videos}}
-  		<li><a href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
-  		<br/>
-  	{{/each}}
-  	<!-- <a href="/users/{{user._id}}/videos/new">New Favorite Video</a> -->
-  </ul>
+  <!-- <div class="row">
+    <div>
+      <ul>
+      	{{#each users}}
+          {{#each videos}}
+        		<li><a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a></li>
+        		<br/>
+        	{{/each}}
+        {{/each}}
+      </ul>
+    </div>
+  </div> -->
 
 </div>
 

@@ -6,3 +6,16 @@ body {
 input {
   color:black;
 }
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: default;
+	text-decoration: none;
+}
+
+input {
+	color: black;
+}

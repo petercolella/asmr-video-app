@@ -10,42 +10,42 @@
 <form action="/users/{{user.id}}/videos/{{video.id}}?_method=PATCH" method="POST">
   <div>
     <label for="video_title">Title:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="video_title" value="{{video.video_title}}"/>
+    <input type="text" name="video_title" value="{{video.video_title}}"/>
   </div>
 
   <div>
     <label for="artist_name">ASMR Artist:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="artist_name" value="{{video.artist_name}}"/>
+    <input type="text" name="artist_name" value="{{video.artist_name}}"/>
   </div>
   
   <div>
     <label for="genre">Genre:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="genre" value="{{video.genre}}"/>
+    <input type="text" name="genre" value="{{video.genre}}"/>
   </div>
   
   <div>
     <label for="language">Language:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="language" value="{{video.language}}"/>
+    <input type="text" name="language" value="{{video.language}}"/>
   </div>
   
   <div>
     <label for="triggers">Triggers:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="triggers" value="{{video.triggers}}"/>
+    <input type="text" name="triggers" value="{{video.triggers}}"/>
   </div>
   
   <div>
     <label for="date">Date Uploaded:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="date" value="{{video.date}}"/>
+    <input type="text" name="date" value="{{video.date}}"/>
   </div>
   
   <div>
     <label for="video_length_mins">Video Length in Minutes:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="video_length_mins" value="{{video.video_length_mins}}"/>
+    <input type="text" name="video_length_mins" value="{{video.video_length_mins}}"/>
   </div>
   
   <div>
-    <label for="url">Url of Video:</label>
-    <input style="color: white; text-shadow: 2px 2px black;" type="text" name="url" value="{{video.url}}"/>
+    <label for="url">HTML Embed Code of Video:</label>
+    <input type="text" name="url" value="{{video.url}}"/>
   </div>
   
   <div>

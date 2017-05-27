@@ -14,7 +14,7 @@ var firstUser = new User({
     username: 'pcolella',
   	email: 'peter.joseph.colella@gmail.com',
   	password_digest: '1234',
-  	about: 'I am new here.',
+  	about: 'I like triggers.',
   	videos: [{
   		artist_name: 'WhispersAudios ASMR',
   		video_title: 'ASMR - Annual Physical Exam with Dr. Hastings',
@@ -23,7 +23,7 @@ var firstUser = new User({
   		triggers: 'Soft Spoken',
   		date: '04/24/2016',
   		video_length_mins: '36',
-  		url: 'https://youtu.be/81H9B738C3g'
+  		url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/81H9B738C3g" frameborder="0" allowfullscreen></iframe>'
   	}, {
   		artist_name: 'WhispersRed ASMR',
   		video_title: 'ASMR Gong Tapping | Gloves & Sticky Fingers',
@@ -32,24 +32,24 @@ var firstUser = new User({
   		triggers: 'Gloves',
   		date: '03/26/2016',
   		video_length_mins: '24',
-  		url: 'https://youtu.be/nOb5buDpAG0'
+  		url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/nOb5buDpAG0" frameborder="0" allowfullscreen></iframe>'
   	}]
 });
 
 var secondUser = new User({
-    username: 'nunya',
-  	email: 'peter.joseph.colella@gmail.com',
-  	password_digest: '1234',
-  	about: 'None of your business.',
+    username: 'Pavo',
+  	email: 'pavo@comcast.net',
+  	password_digest: '5678',
+  	about: 'My hair is standing on end.',
   	videos: [{
-  		artist_name: 'WhispersAudios ASMR',
-  		video_title: 'ASMR - Annual Physical Exam with Dr. Hastings',
+  		artist_name: 'Fairy Char ASMR',
+  		video_title: 'The Cranial Nerves Examination ASMR',
   		genre: 'Role Play',
   		language: 'English',
   		triggers: 'Soft Spoken',
-  		date: '04/24/2016',
-  		video_length_mins: '36',
-  		url: 'https://youtu.be/81H9B738C3g'
+  		date: '03/27/2017',
+  		video_length_mins: '43',
+  		url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/MXmOhUtHBJw" frameborder="0" allowfullscreen></iframe>'
   	}]
 });
 
