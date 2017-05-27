@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
 			if (err) { console.log(err); }
 			
 			res.render('index', {
-				title: 'ASMR Enthusiast',
+				title: 'ASMR Trigger Happy',
 				users: users
 			});
 		});

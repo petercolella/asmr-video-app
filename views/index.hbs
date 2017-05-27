@@ -14,52 +14,24 @@
       </a>
     </div> -->
   <!-- </div> -->
-
-  <!-- <div class="row"> -->
-    <!-- <div class="col-xs-12 col-md-3">
-      <a href="https://asmr-trigger-happy.herokuapp.com/users/58dbf289d9675a0011dbef8b/videos/5925f60d8785f600111d0031" class="thumbnail">
-        <img src="/images/facehugger-removal.png" alt="facehugger-removal">
-      </a>
-    </div>
-  </div> -->
   
   <div class="row">
-    <!-- <div class="col-xs-12 col-md-6"> -->
-      <!-- <div>
-        <ul> -->
-        <!-- <div class="thumbnail"> -->
-        	{{#each users}}
-            
-              {{#each videos}}
-                
-                <div class="col-xs-12 col-md-6">
-                <div style="width: 50% !important; height: auto !important;">{{{url}}}</div>
-                <a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a>
-                <br>
-                <br>
-                </div>
-                
-              {{/each}}
-            
-          {{/each}}
-        <!-- </div> -->
-        <!-- </ul>
-      </div> -->
-    <!-- </div> -->
-  </div>
-
-  <!-- <div class="row">
-    <div>
-      <ul>
-      	{{#each users}}
-          {{#each videos}}
-        		<li><a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a></li>
-        		<br/>
-        	{{/each}}
+  	{{#each users}}
+        {{#each videos}}
+        <div class="col-sm-6 col-md-4">
+          <div class="thumbnail">
+            <div class="embed-responsive embed-responsive-16by9">
+              <div class="embed-responsive-item">{{{url}}}</div>
+            </div>
+            <div class="caption">
+              <h3><a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a></h3>
+              <p>Uploaded by: {{../username}}</p>
+            </div>
+          </div>
+        </div>
         {{/each}}
-      </ul>
-    </div>
-  </div> -->
+    {{/each}}
+  </div>
 
 </div>
 

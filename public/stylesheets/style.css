@@ -7,7 +7,7 @@ input {
   color:black;
 }
 
-a {
+a, p {
 	color: white;
 }
 
@@ -16,6 +16,17 @@ a:hover {
 	text-decoration: none;
 }
 
-input {
-	color: black;
+div.caption a, div.caption p, input {
+	color: #777;
+	/*opacity: 0.3;*/
 }
+
+div.caption a:hover {
+	color: #5e5e5e;
+	text-decoration: none;
+}
+
+/*div.thumbnail iframe {
+	width: 242px !important;
+	height: auto !important;
+}*/
