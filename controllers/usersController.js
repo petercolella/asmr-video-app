@@ -38,18 +38,16 @@ router.get('/:id/edit', authHelpers.authorize, function editAction(req, res) {
 });
 
 //USER UPDATE ROUTE
-router.put('/:id', authHelpers.authorize, function updateAction(req, res) {
-	User.findByIdAndUpdate(req.params.id, {
-		username: req.body.username,
-		email: req.body.email,
-		password_digest: req.body.password_digest,
-		about: req.body.about
-	}, { new: true })
+router.patch('/:id', authHelpers.authorize, function updateAction(req, res) {
+	User.findById(req.params.id)
 		.exec(function(err, user) {
 			if (err) console.log(err);
 			// console.log(user);
 			// res.send(user);
-			res.redirect('users/show', {
+			user.set(req.body)
+      user.save()
+
+      res.render('users/show', {
 				user: user,
         currentUser: req.session.currentUser
 			});
@@ -92,6 +90,8 @@ router.delete('/:id', authHelpers.authorize, function(req, res) {
 	User.findByIdAndRemove(req.params.id)
 	.exec(function(err, user) {
 		if (err) console.log(err);
+    // var session = req.session
+    req.session.destroy()
 		console.log('User Deleted!');
 		res.redirect('/users');
 	});

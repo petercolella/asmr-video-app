@@ -1,6 +1,6 @@
 <body background="/images/img2.jpg" style="background-size: cover;">
 <h1>Edit {{user.username}}</h1>
-<form action="/users/{{user.id}}?_method=PUT" method="POST">
+<form action="/users/{{user.id}}?_method=PATCH" method="POST">
   <div>
     <label for="username">
       User Name
@@ -13,12 +13,12 @@
     </label>
     <input type="text" name="email" value="{{user.email}}"/>
   </div>
-  <div>
+  <!-- <div>
     <label for="password">
       Password
     </label>
-    <input type="text" name="password" value="{{user.password}}"/>
-  </div>
+    <input type="text" name="password" value="{{user.password_digest}}"/>
+  </div> -->
   <div>
     <label for="about">
       About Me
