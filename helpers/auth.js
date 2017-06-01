@@ -13,9 +13,8 @@ function loginUser(req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
 
-  var query = User.findOne({ email: email }).exec()
-
-  query.then(function(foundUser){
+  User.findOne({ email: email }).exec()
+  .then(function(foundUser){
     if (foundUser == null) {
       res.json({status: 401, data: "unauthorized"})
 

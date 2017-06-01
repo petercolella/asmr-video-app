@@ -19,10 +19,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">{{title}}</a>
+          <a class="navbar-brand" href="/">ASMR Trigger Happy</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li>Current User: {{ currentUser.username }}</li>
             <li><a href="/users/signup">signup</a></li>
             <li><a href="/sessions/login">login</a></li>
             <form class="navbar-form navbar-right" method="post" action="/sessions?_method=DELETE">

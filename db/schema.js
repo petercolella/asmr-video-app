@@ -25,7 +25,7 @@ VideoSchema.pre('save', function(next) {
 var UserSchema = new Schema({
 	username: String,
   email: String,
-  password: String,
+  password_digest: String,
   about: String,
   videos: [VideoSchema],
   created_at: Date,

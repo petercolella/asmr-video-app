@@ -12,7 +12,8 @@ router.get('/', function indexVideo(req, res) {
 		if (err) { console.log(err) }
 			// res.send(user);
 			res.render('videos/index', {
-				user: user
+				user: user,
+				currentUser: req.session.currentUser
 			});
 	});
 });
@@ -23,13 +24,15 @@ router.get('/new', /*authHelpers.authorize,*/ function newVideo(req, res) {
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
 			res.render('videos/new', {
-				user: user
+				// video: video,
+				user: user,
+				currentUser: req.session.currentUser
 			});
 	});
 });
 
 //VIDEO CREATE ROUTE
-router.post('/', /*authHelpers.authorize,*/ function createVideo(req, res) {
+router.post('/', authHelpers.authorize, function createVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user){
 		if (err) { console.log(err); }
@@ -51,10 +54,11 @@ router.post('/', /*authHelpers.authorize,*/ function createVideo(req, res) {
 			if (err) console.log(err);
 			console.log('New Video created')
 		});
-		// res.render('videos/index.hbs', {
-		// 	user: user
-		// });
-		res.redirect('/users/' + user.id + '/videos/')
+		res.render('videos/index.hbs', {
+			user: user,
+			currentUser: req.session.currentUser
+		});
+		res.redirect('/users/' + user.id + '/videos')
 		// res.send(newVideo);
 	});
 });
@@ -74,20 +78,21 @@ router.get('/:id', function showVideo(req, res) {
 });
 
 //VIDEO EDIT ROUTE
-router.get('/:id/edit', /*authHelpers.authorize,*/ function editVideo(req, res) {
+router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
 		const video = user.videos.id(req.params.id);
 		res.render('videos/edit', {
 			video: video,
-			user: user
+			user: user,
+			currentUser: req.session.currentUser
 		});
 	});
 });
 
 //VIDEO UPDATE ROUTE
-router.patch('/:id', /*authHelpers.authorize,*/ function updateVideo(req, res) {
+router.patch('/:id', authHelpers.authorize, function updateVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) console.log(err);
@@ -97,13 +102,14 @@ router.patch('/:id', /*authHelpers.authorize,*/ function updateVideo(req, res) {
 
 		res.render('videos/show', {
 			video: video,
-			user: user
+			user: user,
+			currentUser: req.session.currentUser
 		});
 	});
 });
 
 //VIDEO DELETE ROUTE
-router.delete('/:id', /*authHelpers.authorize,*/ function deleteVideo(req, res) {
+router.delete('/:id', authHelpers.authorize, function deleteVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) console.log(err);

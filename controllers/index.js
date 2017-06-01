@@ -12,7 +12,8 @@ router.get('/', function(req, res, next) {
 			
 			res.render('index', {
 				title: 'ASMR Trigger Happy',
-				users: users
+				users: users,
+				currentUser: req.session.currentUser
 			});
 		});
 });

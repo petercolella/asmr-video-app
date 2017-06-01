@@ -26,6 +26,11 @@ div.caption a:hover {
 	text-decoration: none;
 }
 
+form {
+	color: white;
+	text-shadow: 2px 2px black;
+}
+
 /*div.thumbnail iframe {
 	width: 242px !important;
 	height: auto !important;
