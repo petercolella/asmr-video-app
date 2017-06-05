@@ -19,7 +19,7 @@ router.get('/', function indexVideo(req, res) {
 });
 
 //VIDEO NEW ROUTE
-router.get('/new', /*authHelpers.authorize,*/ function newVideo(req, res) {
+router.get('/new', authHelpers.authorize, function newVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function(err, user) {
 		if (err) { console.log(err) }
@@ -35,7 +35,7 @@ router.get('/new', /*authHelpers.authorize,*/ function newVideo(req, res) {
 router.post('/', authHelpers.authorize, function createVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user){
-		if (err) { console.log(err); }
+		if (err) console.log(err);
 
 		const newVideo = {
 			artist_name: req.body.artist_name,
@@ -58,7 +58,7 @@ router.post('/', authHelpers.authorize, function createVideo(req, res) {
 			user: user,
 			currentUser: req.session.currentUser
 		});
-		res.redirect('/users/' + user.id + '/videos')
+		// res.redirect('/users/' + user.id + '/videos')
 		// res.send(newVideo);
 	});
 });
@@ -72,7 +72,8 @@ router.get('/:id', function showVideo(req, res) {
 	    // res.send(video);
 	    res.render('videos/show', {
 	        video: video,
-	        user: user
+	        user: user,
+	        currentUser: req.session.currentUser
       	});
     });
 });
@@ -82,6 +83,7 @@ router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
+		// res.Headers.Add("X-XSS-Protection", "0");
 		const video = user.videos.id(req.params.id);
 		res.render('videos/edit', {
 			video: video,
@@ -99,7 +101,7 @@ router.patch('/:id', authHelpers.authorize, function updateVideo(req, res) {
 		var video = user.videos.id(req.params.id)
 		video.set(req.body)
 		user.save()
-
+		// res.Headers.Add("X-XSS-Protection", "0");
 		res.render('videos/show', {
 			video: video,
 			user: user,

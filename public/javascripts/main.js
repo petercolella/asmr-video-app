@@ -1,0 +1,3 @@
+Handlebars.registerHelper('reverse', function () {
+    
+});
