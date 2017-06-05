@@ -23,15 +23,18 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li>Current User: {{ currentUser.username }}</li>
-            <li><a href="/users/signup">signup</a></li>
-            <li><a href="/sessions/login">login</a></li>
+            {{#if currentUser}}
+            <li><a><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{ currentUser.username }}:</a></li>
+            <li><a href="/users/{{currentUser._id}}">your account</a></li>
             <form class="navbar-form navbar-right" method="post" action="/sessions?_method=DELETE">
               <div class="form-group">
-                <!-- <input type="submit" value="logout"> -->
                 <button type="submit" class="btn btn-default">logout</button>
               </div>
             </form>
+            {{else}}
+            <li><a href="/users/signup">signup</a></li>
+            <li><a href="/sessions/login">login</a></li>
+            {{/if}}
           </ul>
         </div>
       </div>
