@@ -18,7 +18,6 @@ a:hover {
 
 div.caption a, div.caption p, input {
 	color: #777;
-	/*opacity: 0.3;*/
 }
 
 div.caption a:hover {
@@ -30,8 +29,3 @@ form {
 	color: white;
 	text-shadow: 2px 2px black;
 }
-
-/*div.thumbnail iframe {
-	width: 242px !important;
-	height: auto !important;
-}*/

@@ -83,7 +83,6 @@ router.get('/:id/edit', authHelpers.authorize, function editVideo(req, res) {
 	User.findById(req.params.userId)
 	.exec(function (err, user) {
 		if (err) { console.log(err); }
-		// res.Headers.Add("X-XSS-Protection", "0");
 		const video = user.videos.id(req.params.id);
 		res.render('videos/edit', {
 			video: video,
