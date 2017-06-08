@@ -1,40 +1,38 @@
 <body background="/images/img9.jpg" style="background-size: cover;">
-  <div class="panel panel-default">
-  <div class="row">
-  <div class="col-md-6">
-  <div class="panel-body">
-    <div class="page-header">
-      <h1>{{video.video_title}}</h1>
-    </div>
-    <ul style="font-size: 1.5em;">
-      <li>Artist: {{video.artist_name}}</li>
-      <li>Genre: {{video.genre}}</li>
-      <li>Language: {{video.language}}</li>
-      <li>Triggers: {{video.triggers}}</li>
-      <li>Date Uploaded: {{video.date}}</li>
-      <li>Video Length: {{video.video_length_mins}} Minutes</li>
-      <br>
-      
-      {{{video.url}}}
 
-      <div>
-      <a href="/users/{{user.id}}/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
-      <form class="navbar-form navbar-right" action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
-        <div class="form-group">
+<div class="container-fluid">
+  <div class="page-header">
+    <h1>{{video.video_title}}</h1>
+  </div>
+
+  <div class="embed-responsive embed-responsive-16by9">
+    {{{video.url}}}
+  </div>
+
+  <br>
+
+  <div>
+    <p>Artist: {{video.artist_name}}</p>
+    <p>Genre: {{video.genre}}</p>
+    <p>Language: {{video.language}}</p>
+    <p>Trigger(s): {{video.triggers}}</p>
+    <p>Date Uploaded: {{video.date}}</p>
+    <p>Video Length: {{video.video_length_mins}} Minutes</p>
+    <a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of {{user.username}}'s Videos</a>
+  </div>
+
+  <br>
+
+  {{#if req.session.currentUser.id}}
+  <div>
+    <a href="/users/{{user.id}}/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a>
+
+      <form class="navbar-form" action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
           <button type="submit" class="btn btn-default">Delete This Video :(</button>
-        </div>
-      </form>
-      </div>
+      </form>    
+  </div>
+  {{/if}}
 
-    </ul>
-  </div>
-  </div>
-  </div>
-  </div>
-  <div style="display: inline-flex;">
-    <nav>
-    	<a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of {{user.username}}'s Videos</a>
-    </nav>
-  </div>
+</div>
 
 </body>
