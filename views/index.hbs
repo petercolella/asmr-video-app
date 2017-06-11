@@ -3,7 +3,8 @@
 <div class="container-fluid">
 
   <div class="page-header">
-    <h1 id="main-heading">ASMR Trigger Happy <small><a href="/users">Click to View Our Contributors</a></small></h1>
+    <h1 id="main-heading">ASMR Trigger Happy</h1>
+    <a class="btn btn-default btn-sm" href="/users" role="button">Click to View Our Contributors</a>
   </div>
   
   <div class="row">
@@ -16,7 +17,7 @@
             </div>
             <div class="caption">
               <h3><a href="/users/{{../id}}/videos/{{this.id}}">{{video_title}}</a></h3>
-              <p>Uploaded by: {{../username}}</p>
+              <p>Uploaded by: <a href="/users/{{../id}}">{{../username}}</a></p>
               <p class="trigger">Trigger(s): {{triggers}}</p>
             </div>
           </div>
