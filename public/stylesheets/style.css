@@ -1,4 +1,5 @@
 body {
+  	padding-bottom: 70px;
   	padding-top: 70px;
   	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
@@ -32,4 +33,8 @@ form {
 
 .page-header {
 	color: white;
+}
+
+.white {
+	color: rgba(255, 255, 255, 1);
 }

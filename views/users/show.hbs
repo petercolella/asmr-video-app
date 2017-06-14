@@ -1,43 +1,43 @@
 <body background="/images/img4.jpg" style="background-size: cover;">
 
-	<div class="container-fluid" style="color: white; text-shadow: 1px 1px black;">
+<div class="container-fluid" style="color: white; text-shadow: 1px 1px black;">
 
-		<div class="page-header">
-		    <h1 id="main-heading">{{user.username}}'s Profile Page <small>{{user.about}}</small></h1>
-		</div>
-
-		<h3>My Favorite Videos: <small><a href="/users/{{user.id}}/videos">(Click here to see their details)</a></small></h3>
-		<ul>
-		  {{#each user.videos}}
-		  	<li>
-		    	<p>Title: {{this.video_title}}</p>
-		    </li>
-		  {{/each}}
-		</ul>
+	<div class="page-header">
+	    <h1 id="main-heading">{{user.username}}'s Profile Page <small>{{user.about}}</small></h1>
 	</div>
 
-	<nav class="navbar navbar-default navbar-fixed-bottom">
-	  <div class="container">
-	  	<div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/users">Back to All Users</a>
-        </div>
-	  	<div id="navbar" class="navbar-collapse collapse">
-		  	<ul class="nav navbar-nav navbar-right">
-	            <li><a href="/users/{{user.id}}/edit">Edit Your Account</a></li>
-	            <form class="navbar-form navbar-right" action="/users/{{user.id}}?_method=DELETE" method="POST">
-		          <div class="form-group">
-		            <button type="submit" class="btn btn-danger">Delete Your Account</button>
-		          </div>
-		        </form>
-	        </ul>
-        </div>
-	  </div>
-	</nav>
+	<h3>My Favorite Videos: <small><a href="/users/{{user.id}}/videos">(Click here to see their details)</a></small></h3>
+	<ul>
+	  {{#each user.videos}}
+	  	<li>
+	    	<p>Title: {{this.video_title}}</p>
+	    </li>
+	  {{/each}}
+	</ul>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+  	<div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/users">Back to All Users</a>
+    </div>
+  	<div id="navbar" class="navbar-collapse collapse">
+	  	<ul class="nav navbar-nav navbar-right">
+            <li><a href="/users/{{user.id}}/edit">Edit or Delete your Account if you are {{user.username}}</a></li>
+            <!-- <form class="navbar-form navbar-right" action="/users/{{user.id}}?_method=DELETE" method="POST">
+	          <div class="form-group">
+	            <button type="submit" class="btn btn-danger">Delete Your Account</button>
+	          </div>
+	        </form> -->
+        </ul>
+    </div>
+  </div>
+</nav>
 
 </body>

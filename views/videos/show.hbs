@@ -1,6 +1,7 @@
 <body background="/images/img9.jpg" style="background-size: cover;">
 
 <div class="container-fluid">
+  
   <div class="page-header">
     <h1>{{video.video_title}}</h1>
   </div>
@@ -10,9 +11,7 @@
       <div class="embed-responsive embed-responsive-16by9">
         {{{video.url}}}
       </div>
-
       <br>
-
       <div>
         <p>Artist: {{video.artist_name}}</p>
         <p>Genre: {{video.genre}}</p>
@@ -20,50 +19,31 @@
         <p>Trigger(s): {{video.triggers}}</p>
         <p>Date Uploaded: {{video.date}}</p>
         <p>Video Length: {{video.video_length_mins}} Minutes</p>
-        <!-- <a href="/users/{{user.id}}/videos" class="btn btn-default">Back to All of {{user.username}}'s Videos</a> -->
       </div>
-
       <br>
-
-      <!-- {{#if currentUser}} -->
-      <!-- <div> -->
-        <!-- <a href="/users/{{user.id}}/videos/{{video.id}}/edit" class="btn btn-default">Edit This Video</a> -->
-
-          <!-- <form class="navbar-form" action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST"> -->
-              <!-- <button type="submit" class="btn btn-default">Delete This Video :(</button> -->
-          <!-- </form>     -->
-      <!-- </div> -->
-      <!-- {{/if}} -->
-
     </div>
   </div>
-
 </div>
 
-<nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/users/{{user.id}}/videos">Back to All of {{user.username}}'s Videos</a>
-        </div>
-      <div id="navbar" class="navbar-collapse collapse">
-      <!-- {{#if currentUser}} -->
-        <ul class="nav navbar-nav navbar-right">
-              <li><a href="/users/{{user.id}}/videos/{{video.id}}/edit">Edit This Video</a></li>
-              <form class="navbar-form navbar-right" action="/users/{{user.id}}/videos/{{video.id}}?_method=DELETE" method="POST">
-              <div class="form-group">
-                <button type="submit" class="btn btn-danger">Delete This Video :(</button>
-              </div>
-            </form>
-          </ul>
-        <!-- {{/if}} -->
-        </div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/users/{{user.id}}/videos">Back to All of {{user.username}}'s Videos</a>
     </div>
-  </nav>
+    <div id="navbar" class="navbar-collapse collapse">
+    {{#if currentUser}}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/{{user.id}}/videos/{{video.id}}/edit">Edit This Video if you are {{user.username}}</a></li>
+      </ul>
+    {{/if}}
+    </div>
+  </div>
+</nav>
 
 </body>

@@ -1,32 +1,61 @@
 <body background="/images/img2.jpg" style="background-size: cover;">
-<h1>Edit {{user.username}}</h1>
-<form action="/users/{{user.id}}?_method=PATCH" method="POST">
-  <div>
-    <label for="username">
-      User Name
-    </label>
-    <input type="text" name="username" value="{{user.username}}"/>
+
+<div class="container-fluid" style="color: white; text-shadow: 2px 2px black;">
+  <div class="page-header">
+    <h1 style="color: white;">Edit your Account, {{user.username}}</h1>
   </div>
-  <div>
-    <label for="email">
-      Email
-    </label>
-    <input type="text" name="email" value="{{user.email}}"/>
+
+  <div class="row">
+    <div class="col-lg-4 col-md-offset-4">
+      <form action="/users/{{user.id}}?_method=PATCH" method="POST">
+        <div class="form-group">
+          <label for="username">User Name:</label>
+          <input type="username" name="username" class="form-control" id="username" value="{{user.username}}"/>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" name="email" class="form-control" id="email" value="{{user.email}}"/>
+        </div>
+
+        <!-- <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" class="form-control" id="password" value="{{user.password_digest}}"/>
+        </div> -->
+
+        <div class="form-group">
+          <label for="about">About Me:</label>
+          <input type="about" name="about" class="form-control" id="about" value="{{user.about}}"/>
+        </div>
+
+        <button type="submit" class="btn btn-info">Update User Information</button>
+      </form>
+    </div>
   </div>
-  <!-- <div>
-    <label for="password">
-      Password
-    </label>
-    <input type="text" name="password" value="{{user.password_digest}}"/>
-  </div> -->
-  <div>
-    <label for="about">
-      About Me
-    </label>
-    <input type="text" name="about" value="{{user.about}}"/>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/users/{{user.id}}">Back to your account, {{user.username}}</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+            <!-- <li><a href="/users/{{user.id}}/edit">Edit Your Account</a></li> -->
+            <form class="navbar-form navbar-right" action="/users/{{user.id}}?_method=DELETE" method="POST">
+            <div class="form-group">
+              <button type="submit" class="btn btn-danger">Delete Your Account :(</button>
+            </div>
+          </form>
+        </ul>
+    </div>
   </div>
-  <div>
-    <input type="submit" value="Update User"/>
-  </div>
-</form>
+</nav>
+
 </body>
