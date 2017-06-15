@@ -16,7 +16,12 @@ function loginUser(req, res, next) {
   User.findOne({ email: email }).exec()
   .then(function(foundUser){
     if (foundUser == null) {
-      res.json({status: 401, data: "unauthorized"})
+      // res.json({status: 401, data: "unauthorized"})
+      res.render('error', {
+        message: "Oops! You are not allowed to do that.",
+        status: 401,
+        data: 'unauthorized'
+      });
 
     } else if (bcrypt.compareSync(password, foundUser.password_digest)) {
       req.session.currentUser = foundUser;
@@ -25,7 +30,12 @@ function loginUser(req, res, next) {
     next()
   })
   .catch(function(err){
-    res.json({status: 500, data: err})
+    // res.json({status: 500, data: err})
+    res.render('error', {
+      message: "Oops! Something went wrong.",
+      status: 500,
+      data: err
+    });
   });
 }
 
@@ -41,7 +51,12 @@ function authorize(req, res, next) {
     // console.log(currentUser._id);
     console.log(req.params.id);
     console.log(req.params.userId);
-    res.json({status: 401, data: 'unauthorized'});
+    res.render('error', {
+      message: "Oops! You are not allowed to do that.",
+      status: 401,
+      data: 'unauthorized'
+    });
+    // res.json({status: 401, data: 'unauthorized'});
   } else {
     next();
   }
