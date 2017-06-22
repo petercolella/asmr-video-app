@@ -38,3 +38,8 @@ form {
 .white {
 	color: rgba(255, 255, 255, 1);
 }
+
+.asmr-img {
+	align-items: flex-end;
+	display: flex;
+}
