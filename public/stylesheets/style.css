@@ -123,3 +123,7 @@ form {
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+.white {
+	color: white !important;
+}
