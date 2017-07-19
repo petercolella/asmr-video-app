@@ -1,4 +1,4 @@
-<body background="/images/img5.jpg" style="background-size: cover;">
+<body id="videos-edit">
 
 <div class="container-fluid" style="color: white; text-shadow: 2px 2px black;">
   <div class="page-header">
@@ -14,37 +14,37 @@
       <form action="/users/{{user.id}}/videos/{{video.id}}?_method=PATCH" method="POST">
         <div class="form-group">
           <label for="video_title">Title:</label>
-          <input type="text" name="video_title" class="form-control" value="{{video.video_title}}"/>
+          <input type="text" name="video_title" class="form-control" value="{{video.video_title}}">
         </div>
 
         <div class="form-group">
           <label for="artist_name">ASMR Artist:</label>
-          <input type="text" name="artist_name" class="form-control" value="{{video.artist_name}}"/>
+          <input type="text" name="artist_name" class="form-control" value="{{video.artist_name}}">
         </div>
         
         <div class="form-group">
           <label for="genre">Genre:</label>
-          <input type="text" name="genre" class="form-control" value="{{video.genre}}"/>
+          <input type="text" name="genre" class="form-control" value="{{video.genre}}">
         </div>
         
         <div class="form-group">
           <label for="language">Language:</label>
-          <input type="text" name="language" class="form-control" value="{{video.language}}"/>
+          <input type="text" name="language" class="form-control" value="{{video.language}}">
         </div>
         
         <div class="form-group">
           <label for="triggers">Triggers:</label>
-          <input type="text" name="triggers" class="form-control" value="{{video.triggers}}"/>
+          <input type="text" name="triggers" class="form-control" value="{{video.triggers}}">
         </div>
         
         <div class="form-group">
           <label for="date">Date Uploaded:</label>
-          <input type="text" name="date" class="form-control" value="{{video.date}}"/>
+          <input type="text" name="date" class="form-control" value="{{video.date}}">
         </div>
         
         <div class="form-group">
           <label for="video_length_mins">Video Length in Minutes:</label>
-          <input type="text" name="video_length_mins" class="form-control" value="{{video.video_length_mins}}"/>
+          <input type="text" name="video_length_mins" class="form-control" value="{{video.video_length_mins}}">
         </div>
         
         <button type="submit" class="btn btn-info">Update Video Information</button>

@@ -1,19 +1,24 @@
-<body background="/images/img2.jpg" style="background-size: cover;">
+<body id="videos-index">
 
 	<div class="container">
 		<div style="color: white; text-shadow: 1px 1px black;">
-			<div class="page-header">
-				<h1 id="main-heading">{{user.username}}'s Favorite ASMR Videos</h2>
+			<div>
+				<div class="page-header">
+					<h1 id="main-heading">{{user.username}}'s Favorite ASMR Videos</h2>
+				</div>
 			</div>
+
+			<h2>Click to View:</h2>
+
+			<ul>
+				{{#each user.videos}}
+					<li><a style="text-shadow: 1px 1px black;" href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
+					<br/>
+				{{/each}}
+			</ul>
 		</div>
 
-		<ul>
-			{{#each user.videos}}
-				<li><a style="text-shadow: 1px 1px black;" href="/users/{{../user.id}}/videos/{{this.id}}">{{this.video_title}}</a></li>
-				<br/>
-			{{/each}}
-		</ul>
-		<a class="btn btn-default" href="/users/{{user.id}}/videos/new">Add a New Favorite Video</a>
+	<a class="btn btn-info btn-sm" href="/users/{{user.id}}/videos/new" role="button">Add a New Favorite Video</a>
 
 	</div>
 

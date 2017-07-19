@@ -1,140 +1,168 @@
-<body background="/images/img3.jpg" style="background-size: cover;">
+<body id="videos-new">
 
-<div>
-
-<br>
-<br>
-<br>
-<form action="/users/{{user.id}}/videos/" method="POST">
-  <div>
-    <label for="artist_name">What is the artist's name?</label>
-    <input style="color: black;" type="text" name="artist_name">
+<div class="container-fluid" style="color: white; text-shadow: 2px 2px black;">
+  <div class="page-header">
+    <h1 style="color: white;">Add a New Favorite Video</h1>
   </div>
 
-  <div>
-    <label for="video_title">What is the name of the video?</label>
-    <input type="text" name="video_title">
-  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <br>
+      <form action="/users/{{user.id}}/videos/" method="POST">
+        <div class="form-group">
+          <label for="artist_name">What is the artist's name?</label>
+          <input style="color: black;" type="text" name="artist_name" class="form-control" value="{{video.artist_name}}">
+        </div>
 
-  <div>
-    <label for="genre">What is the video's genre?</label>
-    <!-- <input type="text" name="genre"> -->
-  </div>
+        <div class="form-group">
+          <label for="video_title">What is the name of the video?</label>
+          <input type="text" name="video_title" class="form-control" value="{{video.video_title}}">
+        </div>
 
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Soft Spoken"/>
-    Soft Spoken
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="No Talking"/>
-    No Talking
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Eating"/>
-    Eating
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Role Play"/>
-    Role Play
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Massage"/>
-    Massage
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Doing Makeup"/>
-    Doing Makeup
-  </label>
-  </div><div class="checkbox">
-  <label for="genre">
-    <input name="genre" type="checkbox" value="Men's Shaving"/>
-    Men's Shaving
-  </label>
-  </div>
+        <div class="form-group">
+          <label for="genre">What is the video's genre?</label>
+          <!-- <input type="text" name="genre"> -->
+        </div>
 
-  <div>
-    <label for="language">What languages are spoken?</label>
-    <input type="text" name="language">
-  </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Soft Spoken"/>
+          Soft Spoken
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="No Talking"/>
+          No Talking
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Eating"/>
+          Eating
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Role Play"/>
+          Role Play
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Massage"/>
+          Massage
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Doing Makeup"/>
+          Doing Makeup
+        </label>
+        </div><div class="checkbox">
+        <label for="genre">
+          <input name="genre" type="checkbox" value="Men's Shaving"/>
+          Men's Shaving
+        </label>
+        </div>
 
-  <div>
-    <label for="triggers">What triggers are in the video?</label>
-    <!-- <input type="text" name="triggers"> -->
-  </div>
+        <div class="form-group">
+          <label for="language">What languages are spoken?</label>
+          <input type="text" name="language" class="form-control" value="{{video.language}}">
+        </div>
 
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Whispering"/>
-    Whispering
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Tapping"/>
-    Tapping
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Brushing"/>
-    Brushing
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Page Turning"/>
-    Page Turning
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Crinkle Sounds"/>
-    Crinkle Sounds
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Mouth Sounds"/>
-    Mouth Sounds
-  </label>
-  </div>
-  <div class="checkbox">
-  <label for="triggers">
-    <input name="triggers" type="checkbox" value=" Water Sounds"/>
-    Water sounds
-  </label>
-  </div>
+        <div class="form-group">
+          <label for="triggers">What triggers are in the video?</label>
+          <!-- <input type="text" name="triggers"> -->
+        </div>
 
-  <div>
-    <label for="date">On what date was the video uploaded?</label>
-    <input type="text" name="date">
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Whispering"/>
+          Whispering
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Tapping"/>
+          Tapping
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Brushing"/>
+          Brushing
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Page Turning"/>
+          Page Turning
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Crinkle Sounds"/>
+          Crinkle Sounds
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Mouth Sounds"/>
+          Mouth Sounds
+        </label>
+        </div>
+        <div class="checkbox">
+        <label for="triggers">
+          <input name="triggers" type="checkbox" value=" Water Sounds"/>
+          Water sounds
+        </label>
+        </div>
+
+        <div class="form-group">
+          <label for="date">On what date was the video uploaded?</label>
+          <input type="text" name="date" class="form-control" value="{{video.date}}">
+        </div>
+
+        <div class="form-group">
+          <label for="video_length_mins">How long is the video in minutes?</label>
+          <input type="text" name="video_length_mins" class="form-control" value="{{video.video_length_mins}}">
+        </div>
+
+        <div class="form-group">
+          <label for="url">Please paste the HTML Embed Code here (Below is an Example):</label>
+          <input type="text" name="url" class="form-control" value="{{video.url}}">
+          <br>
+          <img src="/images/embed.png" width="648">
+        </div>
+        <br>
+
+        <button type="submit" class="btn btn-info">Add New Favorite Video</button>
+        <!-- <input type="submit" value="Submit"> -->
+      </form>
+    </div>
   </div>
-
-  <div>
-    <label for="video_length_mins">How long is the video in minutes?</label>
-    <input type="text" name="video_length_mins">
-  </div>
-
-  <div>
-    <label for="url">Please paste the HTML Embed Code here.</label>
-    <input type="text" name="url">
-    <img src="/images/embed.png" width="648">
-  </div>
-  <br>
-
-  <input type="submit" value="Submit">
-</form>
-
 </div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/users/{{user.id}}/videos">Back to {{user.username}}'s Videos</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+    <!-- {{#if currentUser}}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/users/{{user.id}}/videos/{{video.id}}/edit">Edit This Video if you are {{user.username}}</a></li>
+      </ul>
+    {{/if}} -->
+    </div>
+  </div>
+</nav>
+
 </body>

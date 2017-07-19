@@ -1,12 +1,13 @@
-<body background="/images/img4.jpg" style="background-size: cover;">
+<body id="users-show">
 
 <div class="container-fluid" style="color: white; text-shadow: 1px 1px black;">
 
 	<div class="page-header">
-	    <h1 id="main-heading">{{user.username}}'s Profile Page <small>{{user.about}}</small></h1>
+	    <h1 id="main-heading">{{user.username}}'s Profile Page</h1>
 	</div>
 
-	<h3>My Favorite Videos: <small><a href="/users/{{user.id}}/videos">(Click here to see their details)</a></small></h3>
+	<h3>About Me: <small>{{user.about}}</small></h3>
+	<h3>My Favorite Videos: <small><a href="/users/{{user.id}}/videos">(Click here to explore them individually)</a></small></h3>
 	<ul>
 	  {{#each user.videos}}
 	  	<li>

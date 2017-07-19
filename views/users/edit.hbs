@@ -1,4 +1,4 @@
-<body background="/images/img2.jpg" style="background-size: cover;">
+<body id="users-edit">
 
 <div class="container-fluid" style="color: white; text-shadow: 2px 2px black;">
   <div class="page-header">
@@ -6,7 +6,7 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-4 col-md-offset-4">
+    <div class="col-lg-4">
       <form action="/users/{{user.id}}?_method=PATCH" method="POST">
         <div class="form-group">
           <label for="username">User Name:</label>
