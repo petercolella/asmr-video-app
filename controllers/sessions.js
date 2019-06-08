@@ -4,18 +4,18 @@ var User = require('../models/user.js');
 var authHelpers = require('../helpers/auth.js');
 
 router.get('/login', function(req, res) {
-	res.render('users/login.hbs');
-})
-
-router.post('/login', authHelpers.loginUser, function(req, res){
-	console.log(req.session)
-	res.redirect('/');
+  res.render('users/login.hbs');
 });
 
-router.delete('/', function(req, res){
-	req.session.destroy(function(){
-		res.redirect('/');
-	});
+router.post('/login', authHelpers.loginUser, function(req, res) {
+  console.log(req.session);
+  res.redirect('/');
+});
+
+router.delete('/', function(req, res) {
+  req.session.destroy(function() {
+    res.redirect('/');
+  });
 });
 
 module.exports = router;
