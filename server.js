@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var methodOverride = require('method-override');
 var livereload = require('connect-livereload');
-require('dotenv').config()
+require('dotenv').config();
 
 var db = require('./db');
 
@@ -21,16 +21,18 @@ var sessionsController = require('./controllers/sessions');
 var app = express();
 
 // // Connect to database
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 mongoose.connection.on('error', function(err) {
   console.error('MongoDB connection error: ' + err);
   process.exit(-1);
-  }
-);
+});
 mongoose.connection.once('open', function() {
-  console.log(process.env.MONGODB_URI)
-  console.log("Mongoose has connected to MongoDB!");
+  console.log(process.env.MONGODB_URI);
+  console.log('Mongoose has connected to MongoDB!');
 });
 
 // view engine setup
@@ -45,11 +47,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-app.use(session({
-  secret: "derpderpderpcats",
-  resave: false,
-  saveUninitialized: false
-}));
+app.use(
+  session({
+    secret: 'derpderpderpcats',
+    resave: false,
+    saveUninitialized: false
+  })
+);
 
 app.use('/', index);
 app.use('/users', usersController);
