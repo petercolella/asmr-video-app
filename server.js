@@ -21,7 +21,7 @@ var sessionsController = require("./controllers/sessions");
 var app = express();
 
 // // Connect to database
-mongoose.connect(process.env.DB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
