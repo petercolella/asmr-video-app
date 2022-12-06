@@ -9,11 +9,11 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bl": "^5.0.0",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "connect-livereload": "^0.6.1",
     "debug": "^4.3.1",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.1",
     "handlebars": "^4.7.7",
     "hbs": "^4.1.2",
